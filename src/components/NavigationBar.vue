@@ -28,23 +28,14 @@
 
         <ul>
             <v-btn
-                class="transparent mx-3"
+                :class=btn.class
                 exact
                 v-for="btn in navBtns"
                 :key="btn.name"
-                elevation="0"
+                :elevation=btn.elevation
                 :to="btn.route"
             >
-                {{btn.label}}
-            </v-btn>
-            <v-btn
-                elevation="3"
-                exact
-                dark
-                class="mx-3"
-                :to="{name: 'SignUp'}"
-            >
-                Sign Up
+                {{btn.text}}
             </v-btn>
         </ul>
     </v-app-bar>
@@ -56,9 +47,10 @@ export default {
     data () {
         return {
             navBtns: [
-                { label: "Home", route: { name: "Home" } },
-                { label: "About", route: { name: "About" } },
-                { label: "Sign In", route: { name: "SignIn" } }
+                { text: "Home", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0" },
+                { text: "About", route: { name: "About" }, class: "transparent white--text mx-3", elevation: "0" },
+                { text: "Sign In", route: { name: "SignIn" }, class: "transparent white--text mx-3", elevation: "0" },
+                { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3" }
             ]
         };
     }
