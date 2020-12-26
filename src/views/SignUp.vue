@@ -1,15 +1,15 @@
 <template>
     <v-form
-        @submit.prevent=""
+        @submit.prevent="submitHandler"
         class="pa-10"
         ref="form"
-        v-model="valid"
+        v-model="formIsValid"
         lazy-validation
     >
         <v-text-field
             v-model="email"
             :counter="254"
-            :rules=emailRules
+            :rules="[]"
             label="E-mail"
             required
         ></v-text-field>
@@ -17,7 +17,7 @@
         <v-text-field
             v-model="password"
             :counter="128"
-            :rules="[]"
+            :rules="passwordRules"
             label="Password"
             type="password"
             required
@@ -26,19 +26,19 @@
         <v-text-field
             v-model="confirmPassword"
             :counter="128"
-            :rules="[]"
+            :rules="confirmPasswordRules"
             label="Confirm password"
             type="password"
             required
         ></v-text-field>
 
         <v-btn
-            :disabled="!valid"
+            :disabled="!formIsValid"
             color="success"
             class="mr-4"
-            @click="validate"
+            @click="submitHandler()"
         >
-            Validate
+            Submit
         </v-btn>
 
         <v-btn
@@ -59,17 +59,20 @@
 </template>
 
 <script>
+import api from "@/lib/api";
 
 export default {
     data: () => ({
-        valid: true,
+        formIsValid: true,
         email: "",
         emailRules: [
             v => !!v || "E-mail is required",
             v => /.+@.+\..+/.test(v) || "E-mail must be valid"
         ],
         password: "",
-        confirmPassword: ""
+        passwordRules: [],
+        confirmPassword: "",
+        confirmPasswordRules: []
     }),
 
     methods: {
@@ -81,6 +84,19 @@ export default {
         },
         resetValidation () {
             this.$refs.form.resetValidation();
+        },
+        async submitHandler () {
+            await this.validate();
+            if (this.formIsValid) {
+                this.sendData();
+            }
+        },
+        async sendData () {
+            console.log("SENDING");
+            const r = await api.get("https://httpbin.org/get").catch(err => {
+                console.log(err);
+            });
+            console.log(r);
         }
     }
 };
