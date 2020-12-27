@@ -93,10 +93,11 @@ export default {
         },
         async sendData () {
             console.log("SENDING");
-            const r = await api.get("https://httpbin.org/get").catch(err => {
+            const r = await api.get("/login").catch(err => {
                 console.log(err);
             });
             console.log(r);
+            console.log(r.body);
         }
     }
 };

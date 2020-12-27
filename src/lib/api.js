@@ -13,6 +13,8 @@ const options = () => {
 };
 
 const parseJSON = (response) => {
+    console.log("Parsing response");
+    console.log(response);
     try {
         return response
             .json()
@@ -38,6 +40,8 @@ const parseJSON = (response) => {
 // Why dont we use aync/await
 // Why dont we catch errors here
 api.get = url => {
+    console.log(APP_API_BASE_URL);
+    console.log(url);
     const fullURL = APP_API_BASE_URL + url;
     return fetch(fullURL, Object.assign(options(), { method: "GET" }))
         .then(parseJSON)
