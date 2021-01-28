@@ -8,13 +8,12 @@ const headers = {
 
 const options = () => {
     return {
-        headers
+        headers,
+        credentials: "include"
     };
 };
 
 const parseJSON = (response) => {
-    console.log("Parsing response");
-    console.log(response);
     try {
         return response
             .json()
@@ -37,22 +36,19 @@ const parseJSON = (response) => {
     }
 };
 
-// Why dont we use aync/await
 // Why dont we catch errors here
-api.get = url => {
-    console.log(APP_API_BASE_URL);
-    console.log(url);
-    const fullURL = APP_API_BASE_URL + url;
+api.get = endpoint => {
+    const fullURL = APP_API_BASE_URL + endpoint;
     return fetch(fullURL, Object.assign(options(), { method: "GET" }))
         .then(parseJSON)
         .then(api.responseHandler);
 };
 
-api.post = (url, data) => {
-    const fullURL = APP_API_BASE_URL + url;
+api.post = (endpoint, data) => {
+    const fullURL = APP_API_BASE_URL + endpoint;
     const opts = Object.assign(options(), {
         method: "POST",
-        body: JSON.stringify(data)
+        body: data
     });
     return fetch(fullURL, opts)
         .then(parseJSON)

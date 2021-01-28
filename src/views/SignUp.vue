@@ -9,7 +9,7 @@
         <v-text-field
             v-model="email"
             :counter="254"
-            :rules="[]"
+            :rules="emailRules"
             label="E-mail"
             required
         ></v-text-field>
@@ -60,21 +60,26 @@
 
 <script>
 import api from "@/lib/api";
-
 export default {
-    data: () => ({
-        formIsValid: true,
-        email: "",
-        emailRules: [
-            v => !!v || "E-mail is required",
-            v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-        ],
-        password: "",
-        passwordRules: [],
-        confirmPassword: "",
-        confirmPasswordRules: []
-    }),
-
+    data () {
+        return {
+            formIsValid: true,
+            email: "",
+            emailRules: [
+                value => !!value || "E-mail is required",
+                value => /.+@.+\..+/.test(value) || "E-mail must be valid"
+            ],
+            password: "",
+            passwordRules: [
+                value => value.length >= 8 || "Password must be at least 8 characters",
+                value => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value) || "Must contain at least one uppercase letter, one lowercase letter, one number"
+            ],
+            confirmPassword: "",
+            confirmPasswordRules: [
+                value => value === this.password || "Passwords must match"
+            ]
+        };
+    },
     methods: {
         validate () {
             this.$refs.form.validate();
@@ -86,18 +91,18 @@ export default {
             this.$refs.form.resetValidation();
         },
         async submitHandler () {
-            await this.validate();
+            this.validate();
             if (this.formIsValid) {
                 this.sendData();
             }
         },
         async sendData () {
-            console.log("SENDING");
-            const r = await api.get("/login").catch(err => {
+            try {
+                const res = await api.get("/sign-up");
+                console.log(res);
+            } catch (err) {
                 console.log(err);
-            });
-            console.log(r);
-            console.log(r.body);
+            }
         }
     }
 };
