@@ -3,105 +3,124 @@
         @submit.prevent="submitHandler"
         class="pa-10"
         ref="form"
-        v-model="formIsValid"
         lazy-validation
     >
         <v-text-field
-            v-model="email"
+            @input="email.error = ''"
+            v-model="email.value"
             :counter="254"
             :rules="emailRules"
+            :error-messages="email.error"
             label="E-mail"
+            :loading="loading"
             required
+            validate-on-blur
         ></v-text-field>
 
         <v-text-field
-            v-model="password"
+            @input="password.error = ''"
+            v-model="password.value"
             :counter="128"
             :rules="passwordRules"
+            :error-messages="password.error"
             label="Password"
             type="password"
+            :loading="loading"
             required
+            validate-on-blur
         ></v-text-field>
 
         <v-text-field
-            v-model="confirmPassword"
+            @input="confirmPassword.error = ''"
+            v-model="confirmPassword.value"
             :counter="128"
             :rules="confirmPasswordRules"
+            :error-messages="confirmPassword.error"
             label="Confirm password"
             type="password"
+            :loading="loading"
             required
+            validate-on-blur
         ></v-text-field>
 
         <v-btn
-            :disabled="!formIsValid"
             color="success"
             class="mr-4"
-            @click="submitHandler()"
+            type="submit"
+            :loading="loading"
         >
             Submit
-        </v-btn>
-
-        <v-btn
-            color="error"
-            class="mr-4"
-            @click="reset"
-        >
-            Reset Form
-        </v-btn>
-
-        <v-btn
-            color="warning"
-            @click="resetValidation"
-        >
-            Reset Validation
         </v-btn>
     </v-form>
 </template>
 
 <script>
-import api from "@/lib/api";
+import { mapActions } from "vuex";
+// CONVERT RESPONSE TO CAMEL CASE
+
 export default {
     data () {
         return {
-            formIsValid: true,
-            email: "",
+            loading: false,
+            email: { value: "bell.matthewf", error: "" },
+            password: { value: "Hellorial1@", error: "" },
+            confirmPassword: { value: "Hellorial1@2", error: "" },
             emailRules: [
                 value => !!value || "E-mail is required",
                 value => /.+@.+\..+/.test(value) || "E-mail must be valid"
             ],
-            password: "",
             passwordRules: [
+                value => !!value || "Password is required",
                 value => value.length >= 8 || "Password must be at least 8 characters",
-                value => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value) || "Must contain at least one uppercase letter, one lowercase letter, one number"
+                value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(value) || "Password must contain at least one uppercase letter, one lowercase letter, one number"
             ],
-            confirmPassword: "",
             confirmPasswordRules: [
-                value => value === this.password || "Passwords must match"
+                value => value === this.password.value || "Passwords must match"
             ]
         };
     },
+    computed: {
+        signUpForm () {
+            return {
+                email: this.email.value,
+                password: this.password.value,
+                confirmPassword: this.confirmPassword.value
+            };
+        }
+    },
     methods: {
+        ...mapActions("user", ["signUpUser"]),
         validate () {
-            this.$refs.form.validate();
-        },
-        reset () {
-            this.$refs.form.reset();
-        },
-        resetValidation () {
-            this.$refs.form.resetValidation();
+            return this.$refs.form.validate();
         },
         async submitHandler () {
-            this.validate();
-            if (this.formIsValid) {
-                this.sendData();
+            const formIsValid = this.validate();
+            if (formIsValid) {
+                const res = await this.sendData();
+                this.handleResponse(res);
             }
         },
         async sendData () {
-            try {
-                const res = await api.get("/sign-up");
-                console.log(res);
-            } catch (err) {
-                console.log(err);
+            this.loading = true;
+            const res = await this.signUpUser(this.signUpForm);
+            this.loading = false;
+            return res;
+        },
+        handleResponse (res) {
+            if (res.status === 422) {
+                this.displayErrors(res);
+            }
+        },
+        displayErrors (res) {
+            const errorsDict = res.data.errors;
+            for (const field in errorsDict) {
+                const errorMsg = errorsDict[field][0];
+                try {
+                    this[field].error = errorMsg;
+                } catch (err) {
+                    console.log(err);
+                    // Show error processing request in banner
+                }
             }
         }
     }
