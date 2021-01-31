@@ -56,7 +56,6 @@
 
 <script>
 import { mapActions } from "vuex";
-// CONVERT RESPONSE TO CAMEL CASE
 
 export default {
     data () {

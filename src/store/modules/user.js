@@ -1,4 +1,5 @@
 import api from "@/lib/api";
+import { CaseConverter } from "@/lib/caseConverter";
 
 const initialState = {
     isLoggedIn: false,
@@ -16,8 +17,11 @@ const mutations = {
 
 const actions = {
     async signUpUser (context, payload) {
-        const data = JSON.stringify(payload);
-        const res = await api.post("/auth/sign-up", data);
+        const caseConverter = new CaseConverter();
+        payload = caseConverter.convertCamelToSnake(payload);
+        payload = JSON.stringify(payload);
+        let res = await api.post("/auth/sign-up", payload);
+        res = caseConverter.convertSnakeToCamel(res);
         return res;
     }
 };
