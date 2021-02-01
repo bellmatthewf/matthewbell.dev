@@ -30,19 +30,6 @@
             validate-on-blur
         ></v-text-field>
 
-        <v-text-field
-            @input="confirmPassword.error = ''"
-            v-model="confirmPassword.value"
-            :counter="128"
-            :rules="confirmPasswordRules"
-            :error-messages="confirmPassword.error"
-            label="Confirm password"
-            type="password"
-            :loading="loading"
-            required
-            validate-on-blur
-        ></v-text-field>
-
         <div class="my-5">
             <v-btn
                 color="success"
@@ -50,7 +37,7 @@
                 type="submit"
                 :loading="loading"
             >
-                Sign Up
+                Submit
             </v-btn>
             <v-btn
                 color="primary"
@@ -79,23 +66,14 @@ export default {
             emailRules: [
                 value => !!value || "E-mail is required",
                 value => /.+@.+\..+/.test(value) || "E-mail must be valid"
-            ],
-            passwordRules: [
-                value => !!value || "Password is required",
-                value => value.length >= 8 || "Password must be at least 8 characters",
-                value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(value) || "Password must contain at least one uppercase letter, one lowercase letter, one number"
-            ],
-            confirmPasswordRules: [
-                value => value === this.password.value || "Passwords must match"
             ]
         };
     },
     computed: {
-        signUpForm () {
+        logInForm () {
             return {
                 email: this.email.value,
-                password: this.password.value,
-                confirmPassword: this.confirmPassword.value
+                password: this.password.value
             };
         }
     },

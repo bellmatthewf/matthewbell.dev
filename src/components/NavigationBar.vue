@@ -49,7 +49,7 @@ export default {
             navBtns: [
                 { text: "Home", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0" },
                 { text: "About", route: { name: "About" }, class: "transparent white--text mx-3", elevation: "0" },
-                { text: "Sign In", route: { name: "SignIn" }, class: "transparent white--text mx-3", elevation: "0" },
+                { text: "Log In", route: { name: "LogIn" }, class: "transparent white--text mx-3", elevation: "0" },
                 { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3" }
             ]
         };

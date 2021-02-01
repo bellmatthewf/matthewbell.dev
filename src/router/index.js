@@ -7,7 +7,7 @@ const Home = () => import("@/views/Home.vue");
 const About = () => import("@/views/About.vue");
 const PageNotFound = () => import("@/views/PageNotFound.vue");
 const SignUp = () => import("@/views/SignUp.vue");
-const SignIn = () => import("@/views/SignIn.vue");
+const LogIn = () => import("@/views/LogIn.vue");
 
 const routes = [
     {
@@ -22,18 +22,18 @@ const routes = [
         component: About
     },
     {
-        path: "/signup",
+        path: "/sign-up",
         name: "SignUp",
         component: SignUp
     },
     {
-        path: "/signin",
-        name: "SignIn",
-        component: SignIn
+        path: "/log-in",
+        name: "LogIn",
+        component: LogIn
     },
     {
         path: "/404",
-        name: "pageNotFound",
+        name: "page-not-found",
         component: PageNotFound
     },
     {
