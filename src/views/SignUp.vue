@@ -15,6 +15,7 @@
             :loading="loading"
             required
             validate-on-blur
+            outlined
         ></v-text-field>
 
         <v-text-field
@@ -28,6 +29,7 @@
             :loading="loading"
             required
             validate-on-blur
+            outlined
         ></v-text-field>
 
         <v-text-field
@@ -41,6 +43,7 @@
             :loading="loading"
             required
             validate-on-blur
+            outlined
         ></v-text-field>
 
         <div class="my-5">

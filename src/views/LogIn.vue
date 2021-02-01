@@ -9,7 +9,6 @@
             @input="email.error = ''"
             v-model="email.value"
             :counter="254"
-            :rules="emailRules"
             :error-messages="email.error"
             label="E-mail"
             :loading="loading"
@@ -21,13 +20,11 @@
             @input="password.error = ''"
             v-model="password.value"
             :counter="128"
-            :rules="passwordRules"
             :error-messages="password.error"
             label="Password"
             type="password"
             :loading="loading"
             required
-            validate-on-blur
         ></v-text-field>
 
         <div class="my-5">
@@ -37,15 +34,20 @@
                 type="submit"
                 :loading="loading"
             >
-                Submit
+                Log In
             </v-btn>
             <v-btn
                 color="primary"
                 class="mr-4"
-                type="submit"
-                :loading="loading"
             >
-                Already have an account?
+                Create New Account
+            </v-btn>
+            <v-btn
+                color="primary"
+                class="mr-4"
+                text
+            >
+                Forgot password?
             </v-btn>
         </div>
 
@@ -61,12 +63,7 @@ export default {
         return {
             loading: false,
             email: { value: "", error: "" },
-            password: { value: "", error: "" },
-            confirmPassword: { value: "", error: "" },
-            emailRules: [
-                value => !!value || "E-mail is required",
-                value => /.+@.+\..+/.test(value) || "E-mail must be valid"
-            ]
+            password: { value: "", error: "" }
         };
     },
     computed: {
@@ -78,7 +75,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions("user", ["signUpUser"]),
+        ...mapActions("user", ["logInUser"]),
         validate () {
             return this.$refs.form.validate();
         },
