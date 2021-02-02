@@ -75,7 +75,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions("user", ["logInUser"]),
+        ...mapActions("user", ["logIn"]),
         validate () {
             return this.$refs.form.validate();
         },
@@ -88,7 +88,7 @@ export default {
         },
         async sendData () {
             this.loading = true;
-            const res = await this.signUpUser(this.signUpForm);
+            const res = await this.logIn(this.logInForm);
             this.loading = false;
             return res;
         },

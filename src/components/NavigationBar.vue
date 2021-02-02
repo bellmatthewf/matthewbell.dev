@@ -34,6 +34,7 @@
                 :key="btn.name"
                 :elevation=btn.elevation
                 :to="btn.route"
+                @click="btn.onClick"
             >
                 {{btn.text}}
             </v-btn>
@@ -42,17 +43,40 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     name: "TheNavBar",
     data () {
         return {
-            navBtns: [
-                { text: "Home", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0" },
-                { text: "About", route: { name: "About" }, class: "transparent white--text mx-3", elevation: "0" },
-                { text: "Log In", route: { name: "LogIn" }, class: "transparent white--text mx-3", elevation: "0" },
-                { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3" }
+            commonNavBtns: [
+                { text: "Home", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } },
+                { text: "About", route: { name: "About" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } }
+            ],
+            loggedOutNavBtns: [
+                { text: "Log In", route: { name: "LogIn" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } },
+                { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3", onClick: () => { } }
+            ],
+            loggedInNavBtns: [
+                { text: "Log Out", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0", onClick: this.logOutHandler }
             ]
         };
+    },
+    computed: {
+        ...mapGetters("user", ["getIsLoggedIn"]),
+        navBtns () {
+            if (this.getIsLoggedIn) {
+                return [...this.commonNavBtns, ...this.loggedInNavBtns];
+            } else {
+                return [...this.commonNavBtns, ...this.loggedOutNavBtns];
+            }
+        }
+    },
+    methods: {
+        ...mapActions("user", ["logOut"]),
+        logOutHandler () {
+            this.logOut();
+        }
     }
 };
 </script>

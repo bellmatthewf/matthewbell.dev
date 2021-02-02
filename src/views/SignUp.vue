@@ -103,7 +103,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions("user", ["signUpUser"]),
+        ...mapActions("user", ["signUp"]),
         validate () {
             return this.$refs.form.validate();
         },
@@ -116,7 +116,7 @@ export default {
         },
         async sendData () {
             this.loading = true;
-            const res = await this.signUpUser(this.signUpForm);
+            const res = await this.signUp(this.signUpForm);
             this.loading = false;
             return res;
         },

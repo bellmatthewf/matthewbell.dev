@@ -10,11 +10,13 @@ const initialState = {
 const state = { ...initialState };
 
 const getters = {
+    getIsLoggedIn (state) {
+        return state.isLoggedIn;
+    }
 };
 
 const mutations = {
     setUser (state, user) {
-        console.log(user);
         state.user = user;
     },
     setIsLoggedIn (state, isLoggedIn) {
@@ -23,16 +25,35 @@ const mutations = {
 };
 
 const actions = {
-    async signUpUser ({ commit }, payload) {
+    async signUp ({ commit }, payload) {
         const caseConverter = new CaseConverter();
         payload = caseConverter.convertCamelToSnake(payload);
         payload = JSON.stringify(payload);
         let res = await api.post("/auth/sign-up", payload);
         res = caseConverter.convertSnakeToCamel(res);
-        console.log(res);
         if (res.status === statusCodes.created) {
             commit("setUser", res.data.user);
             commit("setIsLoggedIn", res.data.isLoggedIn);
+        }
+        return res;
+    },
+    async logIn ({ commit }, payload) {
+        const caseConverter = new CaseConverter();
+        payload = caseConverter.convertCamelToSnake(payload);
+        payload = JSON.stringify(payload);
+        let res = await api.post("/auth/log-in", payload);
+        res = caseConverter.convertSnakeToCamel(res);
+        if (res.status === statusCodes.ok) {
+            commit("setUser", res.data.user);
+            commit("setIsLoggedIn", res.data.isLoggedIn);
+        }
+        return res;
+    },
+    async logOut ({ commit }, payload) {
+        const res = await api.post("/auth/log-out", payload);
+        if (res.status === statusCodes.ok) {
+            commit("setUser", null);
+            commit("setIsLoggedIn", false);
         }
         return res;
     }
