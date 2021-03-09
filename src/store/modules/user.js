@@ -10,7 +10,7 @@ const initialState = {
 const state = { ...initialState };
 
 const getters = {
-    getIsLoggedIn (state) {
+    isLoggedIn (state) {
         return state.isLoggedIn;
     }
 };
@@ -55,6 +55,10 @@ const actions = {
             commit("setUser", null);
             commit("setIsLoggedIn", false);
         }
+        return res;
+    },
+    async verifyEmail ({ commit }, token) {
+        const res = await api.get(`/auth/verify-email/${token}`);
         return res;
     }
 };

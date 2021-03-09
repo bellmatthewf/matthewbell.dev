@@ -8,6 +8,7 @@ const About = () => import("@/views/About.vue");
 const PageNotFound = () => import("@/views/PageNotFound.vue");
 const SignUp = () => import("@/views/SignUp.vue");
 const LogIn = () => import("@/views/LogIn.vue");
+const VerifyEmail = () => import("@/views/VerifyEmail.vue");
 
 const routes = [
     {
@@ -32,8 +33,13 @@ const routes = [
         component: LogIn
     },
     {
+        path: "/verify-email/:token",
+        name: "VerifyEmail",
+        component: VerifyEmail
+    },
+    {
         path: "/404",
-        name: "page-not-found",
+        name: "PageNotFound",
         component: PageNotFound
     },
     {

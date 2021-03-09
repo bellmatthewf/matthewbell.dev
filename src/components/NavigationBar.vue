@@ -63,9 +63,9 @@ export default {
         };
     },
     computed: {
-        ...mapGetters("user", ["getIsLoggedIn"]),
+        ...mapGetters("user", ["isLoggedIn"]),
         navBtns () {
-            if (this.getIsLoggedIn) {
+            if (this.isLoggedIn) {
                 return [...this.commonNavBtns, ...this.loggedInNavBtns];
             } else {
                 return [...this.commonNavBtns, ...this.loggedOutNavBtns];

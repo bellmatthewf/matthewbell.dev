@@ -93,11 +93,15 @@ export default {
             return res;
         },
         handleResponse (res) {
-            if (res.status === statusCodes.unprocesssableEntity) {
+            if (res.status === statusCodes.unprocessableEntity) {
                 this.displayErrors(res);
+            }
+            if (res.status === statusCodes.ok) {
+                this.$router.push(this.$route.query.redirect || { name: "Home" });
             }
         },
         displayErrors (res) {
+            console.log(res);
             const errorsDict = res.data.errors;
             for (const field in errorsDict) {
                 const errorMsg = errorsDict[field][0];
