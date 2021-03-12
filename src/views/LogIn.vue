@@ -39,6 +39,7 @@
             <v-btn
                 color="primary"
                 class="mr-4"
+                :to="{name:'SignUp'}"
             >
                 Create New Account
             </v-btn>
@@ -46,6 +47,7 @@
                 color="primary"
                 class="mr-4"
                 text
+                :to="{name:'ForgotPassword'}"
             >
                 Forgot password?
             </v-btn>

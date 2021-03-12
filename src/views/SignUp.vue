@@ -15,7 +15,6 @@
             :loading="loading"
             required
             validate-on-blur
-            outlined
         ></v-text-field>
 
         <v-text-field
@@ -29,7 +28,6 @@
             :loading="loading"
             required
             validate-on-blur
-            outlined
         ></v-text-field>
 
         <v-text-field
@@ -43,7 +41,6 @@
             :loading="loading"
             required
             validate-on-blur
-            outlined
         ></v-text-field>
 
         <div class="my-5">
@@ -60,6 +57,7 @@
                 class="mr-4"
                 type="submit"
                 :loading="loading"
+                :to="{name:'LogIn'}"
             >
                 Already have an account?
             </v-btn>

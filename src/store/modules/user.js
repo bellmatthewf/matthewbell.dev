@@ -60,6 +60,21 @@ const actions = {
     async verifyEmail ({ commit }, token) {
         const res = await api.get(`/auth/verify-email/${token}`);
         return res;
+    },
+    async resetPasswordRequest ({ commit }, resetPasswordRequestForm) {
+        const caseConverter = new CaseConverter();
+        resetPasswordRequestForm = caseConverter.convertCamelToSnake(resetPasswordRequestForm);
+        resetPasswordRequestForm = JSON.stringify(resetPasswordRequestForm);
+        const res = await api.post("/auth/reset-password-request", resetPasswordRequestForm);
+        return res;
+    },
+    async resetPassword ({ commit }, payload) {
+        const caseConverter = new CaseConverter();
+        payload.resetPasswordForm = caseConverter.convertCamelToSnake(payload.resetPasswordForm);
+        payload.resetPasswordForm = JSON.stringify(payload.resetPasswordForm);
+        console.log(payload.resetPasswordForm);
+        const res = await api.post(`/auth/reset-password/${payload.token}`, payload.resetPasswordForm);
+        return res;
     }
 };
 

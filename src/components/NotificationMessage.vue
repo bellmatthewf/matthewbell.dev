@@ -3,7 +3,7 @@
         <v-alert
             dismissible
             text
-            elevation="2"
+            elevation="1"
             outlined
             :type="notification.type"
         >

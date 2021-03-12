@@ -28,15 +28,17 @@
             <v-btn
                 color="primary"
                 class="mr-4"
+                :to="{name:'SignUp'}"
             >
-                Create New Account
+                Need an account?
             </v-btn>
             <v-btn
                 color="primary"
                 class="mr-4"
                 text
+                :to="{name:'LogIn'}"
             >
-                Forgot password?
+                Remember your password?
             </v-btn>
         </div>
 
@@ -45,6 +47,7 @@
 
 <script>
 import { statusCodes } from "@/lib/statusCodes";
+import { mapActions } from "vuex";
 
 export default {
     data () {
@@ -54,14 +57,15 @@ export default {
         };
     },
     computed: {
-        logInForm () {
+        resetPasswordRequestForm () {
             return {
-                email: this.email.value,
-                password: this.password.value
+                email: this.email.value
             };
         }
     },
     methods: {
+        ...mapActions("notification", ["addNotification"]),
+        ...mapActions("user", ["resetPasswordRequest"]),
         validate () {
             return this.$refs.form.validate();
         },
@@ -74,29 +78,17 @@ export default {
         },
         async sendData () {
             this.loading = true;
-            const res = await this.logIn(this.logInForm);
+            const res = await this.resetPasswordRequest(this.resetPasswordRequestForm);
             this.loading = false;
             return res;
         },
         handleResponse (res) {
-            if (res.status === statusCodes.unprocessableEntity) {
-                this.displayErrors(res);
+            if (res.status === statusCodes.badRequest) {
+                this.addNotification({ message: "Could not send verification email. Please try again", type: "error" });
             }
             if (res.status === statusCodes.ok) {
                 this.$router.push(this.$route.query.redirect || { name: "Home" });
-            }
-        },
-        displayErrors (res) {
-            console.log(res);
-            const errorsDict = res.data.errors;
-            for (const field in errorsDict) {
-                const errorMsg = errorsDict[field][0];
-                try {
-                    this[field].error = errorMsg;
-                } catch (err) {
-                    console.log(err);
-                    // Show error processing request in banner
-                }
+                this.addNotification({ message: `Password reset email sent to ${this.email.value}`, type: "success" });
             }
         }
     }
