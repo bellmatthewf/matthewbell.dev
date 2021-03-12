@@ -9,6 +9,8 @@ const PageNotFound = () => import("@/views/PageNotFound.vue");
 const SignUp = () => import("@/views/SignUp.vue");
 const LogIn = () => import("@/views/LogIn.vue");
 const VerifyEmail = () => import("@/views/VerifyEmail.vue");
+const ForgotPassword = () => import("@/views/ForgotPassword.vue");
+const ResetPassword = () => import("@/views/ResetPassword.vue");
 
 const routes = [
     {
@@ -36,6 +38,16 @@ const routes = [
         path: "/verify-email/:token",
         name: "VerifyEmail",
         component: VerifyEmail
+    },
+    {
+        path: "/forgot-password",
+        name: "ForgotPassword",
+        component: ForgotPassword
+    },
+    {
+        path: "/reset-password/:token",
+        name: "ResetPassword",
+        component: ResetPassword
     },
     {
         path: "/404",

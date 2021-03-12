@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <NotificationList />
         <NavigationBar />
 
         <v-main>
@@ -10,10 +11,11 @@
 
 <script>
 import NavigationBar from "@/components/NavigationBar";
+import NotificationList from "@/components/NotificationList";
 
 export default {
     name: "App",
-    components: { NavigationBar },
+    components: { NavigationBar, NotificationList },
     computed: {
         theme () {
             return (this.$vuetify.theme.dark) ? "dark" : "light";

@@ -1,3 +1,4 @@
+import notification from "@/store/modules/notification";
 import user from "@/store/modules/user";
 import Vue from "vue";
 import Vuex from "vuex";
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     actions: {
     },
     modules: {
-        user
+        user,
+        notification
     }
 });
