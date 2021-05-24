@@ -2,7 +2,7 @@
     <v-app-bar
         app
         flat
-        class="app-bar primary"
+        class="app-bar white pa-5"
     >
         <div class="d-flex align-center">
             <v-img
@@ -29,6 +29,7 @@
         <ul>
             <v-btn
                 :class=btn.class
+                plain
                 exact
                 v-for="btn in navBtns"
                 :key="btn.name"
@@ -50,15 +51,15 @@ export default {
     data () {
         return {
             commonNavBtns: [
-                { text: "Home", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } },
-                { text: "About", route: { name: "About" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } }
+                { text: "Home", route: { name: "Home" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } },
+                { text: "About", route: { name: "About" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } }
             ],
             loggedOutNavBtns: [
-                { text: "Log In", route: { name: "LogIn" }, class: "transparent white--text mx-3", elevation: "0", onClick: () => { } },
+                { text: "Log In", route: { name: "LogIn" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } },
                 { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3", onClick: () => { } }
             ],
             loggedInNavBtns: [
-                { text: "Log Out", route: { name: "Home" }, class: "transparent white--text mx-3", elevation: "0", onClick: this.logOutHandler }
+                { text: "Log Out", route: { name: "Home" }, class: "transparent black--text mx-3", elevation: "0", onClick: this.logOutHandler }
             ]
         };
     },
