@@ -1,34 +1,5 @@
-# aisurando
+**[matthewbell.dev](https://matthewbell.dev)**
 
-## Project setup
-```
-yarn install
-```
+my personal website powered by [Vue](https://vuejs.org)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<br>
