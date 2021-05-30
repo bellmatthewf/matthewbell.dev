@@ -2,7 +2,7 @@
     <v-app-bar
         app
         flat
-        class="app-bar white pa-5 mb-10 red"
+        class="app-bar white pa-5"
     >
         <div class="d-flex align-center">
             <v-img
@@ -31,16 +31,13 @@
                 plain
                 exact
                 v-for="btn in navBtns"
-                :class=btn.class
-                :key="btn.name"
+                class="transparent black--text"
+                :key=btn.name
                 :href=btn.url
             >
-                {{btn.text}}
+                <v-icon v-if="btn.icon">{{btn.icon}}</v-icon>
+                <span v-else>{{btn.text}}</span>
             </v-btn>
-            <v-icon>mdi-github</v-icon>
-            <v-icon>mdi-linkedin</v-icon>
-            <v-icon>mdi-weather-night</v-icon>
-            <v-icon>mdi-white-balance-sunny</v-icon>
         </ul>
     </v-app-bar>
 </template>
@@ -53,9 +50,13 @@ export default {
     data () {
         return {
             navBtns: [
-                { text: "Home", url: routes.home, class: "transparent black--text mx-3 active-class" },
-                { text: "Blog", url: routes.blog, class: "transparent black--text mx-3" },
-                { text: "Contact", url: routes.contact, class: "transparent black--text mx-3" },
+                { text: "Home", url: routes.home },
+                { text: "Blog", url: routes.blog },
+                { text: "Contact", url: routes.contact },
+                { icon: "mdi-github" },
+                { icon: "mdi-linkedin" },
+                { icon: "mdi-weather-night" },
+                { icon: "mdi-white-balance-sunny" },
             ],
         };
     },
