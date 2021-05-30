@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app :class="classObject">
         <TheNavBar />
 
         <v-main>
@@ -15,9 +15,31 @@ export default {
     name: "Index",
     components: { TheNavBar },
     computed: {
-        theme () {
+        classObject () {
             return (this.$vuetify.theme.dark) ? "dark" : "light";
         },
     },
 };
 </script>
+
+<style lang="scss">
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(44, 44, 44);
+
+    /* Handle on hover */
+    &:hover {
+        background: rgb(150, 38, 141);
+    }
+}
+</style>

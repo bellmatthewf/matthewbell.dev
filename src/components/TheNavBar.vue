@@ -36,22 +36,33 @@
                     plain
                     exact
                     v-for="btn in navBtns"
-                    :ripple="false"
                     :key=btn.name
+                    :ripple="false"
                     :href=btn.url
-                    :target="btn.icon ? '_blank' : ''"
-                    :rel="btn.icon ? 'noopener noreferrer' : ''"
                 >
-                    <v-icon v-if="btn.icon">{{btn.icon}}</v-icon>
-                    <span v-else>{{btn.text}}</span>
+                    {{btn.text}}
                 </v-btn>
                 <v-btn
                     plain
                     exact
+                    x-small
+                    v-for="btn in navIcons"
+                    :key=btn.icon
                     :ripple="false"
-                    @click="toggleDarkMode"
+                    :href=btn.url
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    <v-icon>{{lightOrDarkIcon}}</v-icon>
+                    <v-icon>{{btn.icon}}</v-icon>
+                </v-btn>
+                <v-btn
+                    plain
+                    exact
+                    x-small
+                    :ripple="false"
+                    @click="toggleTheme"
+                >
+                    <v-icon>{{themeIcon}}</v-icon>
                 </v-btn>
             </ul>
         </div>
@@ -71,17 +82,16 @@ export default {
                 { text: "Home", url: routes.home },
                 { text: "Blog", url: routes.blog },
                 { text: "Contact", url: routes.contact },
+            ],
+            navIcons: [
                 { icon: "mdi-github", url: "https://github.com/bellmatthewf" },
                 { icon: "mdi-linkedin", url: "https://www.linkedin.com/in/matthewfbell/" },
             ],
         };
     },
     computed: {
-        isDark () {
-            return this.$vuetify.theme.dark;
-        },
-        lightOrDarkIcon () {
-            if (this.isDark) {
+        themeIcon () {
+            if (this.$vuetify.theme.dark) {
                 return "mdi-white-balance-sunny";
             } else {
                 return "mdi-weather-night";
@@ -89,7 +99,7 @@ export default {
         },
     },
     methods: {
-        toggleDarkMode () {
+        toggleTheme () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             window.localStorage.setItem("vue-dark-mode", this.$vuetify.theme.dark);
         },

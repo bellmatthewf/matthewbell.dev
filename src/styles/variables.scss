@@ -1,0 +1,12 @@
+// Vuetify loader will automatically bootstrap variables into Vue CLI’s compilation process, overwriting the framework defaults
+// See which Vuetify variables can be customized here: https://vuetifyjs.com/en/features/sass-variables/#variable-api
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+// Globals
+$font-family: 'Inter', sans-serif;
+$body-font-family: 'Inter', sans-serif;
+
+// v-btn
+// $btn-text-transform: none;
+// $btn-icon-padding: 5px;
+$btn-icon-padding: 0px;
