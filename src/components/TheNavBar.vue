@@ -30,8 +30,8 @@
             <v-btn
                 plain
                 exact
-                v-for="btn in navBtns"
                 class="transparent black--text"
+                v-for="btn in navBtns"
                 :key=btn.name
                 :href=btn.url
             >

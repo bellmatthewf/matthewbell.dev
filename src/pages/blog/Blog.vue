@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <NavigationBar />
+        <TheNavBar />
 
         <v-main>
             <h1>HELLOoo</h1>
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import NavigationBar from "@/components/NavigationBar";
+import TheNavBar from "@/components/TheNavBar";
 
 export default {
     name: "Blog",
-    components: { NavigationBar },
+    components: { TheNavBar },
     computed: {
         theme () {
             return (this.$vuetify.theme.dark) ? "dark" : "light";
