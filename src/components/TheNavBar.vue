@@ -34,6 +34,8 @@
                 v-for="btn in navBtns"
                 :key=btn.name
                 :href=btn.url
+                :target="btn.icon ? '_blank' : ''"
+                :rel="btn.icon ? 'noopener noreferrer' : ''"
             >
                 <v-icon v-if="btn.icon">{{btn.icon}}</v-icon>
                 <span v-else>{{btn.text}}</span>
@@ -53,8 +55,8 @@ export default {
                 { text: "Home", url: routes.home },
                 { text: "Blog", url: routes.blog },
                 { text: "Contact", url: routes.contact },
-                { icon: "mdi-github" },
-                { icon: "mdi-linkedin" },
+                { icon: "mdi-github", url: "https://github.com/bellmatthewf" },
+                { icon: "mdi-linkedin", url: "https://www.linkedin.com/in/matthewfbell/" },
                 { icon: "mdi-weather-night" },
                 { icon: "mdi-white-balance-sunny" },
             ],
