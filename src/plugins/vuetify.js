@@ -10,14 +10,14 @@ const vuetify = new Vuetify({
                 // secondary: colors.grey.darken1,
                 // accent: colors.shades.black,
                 // error: colors.red.accent3,
-                background: colors.blueGrey.lighten5 // Not automatically applied
+                background: colors.blueGrey.lighten5, // Not automatically applied
             },
             dark: {
                 // primary: colors.blue.lighten3,
                 // background: colors.indigo.base // If not using lighten/darken, use base to return hex
-            }
-        }
-    }
+            },
+        },
+    },
 });
 
 Vue.use(Vuetify);

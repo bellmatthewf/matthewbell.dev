@@ -2,7 +2,7 @@
     <v-app-bar
         app
         flat
-        class="app-bar white pa-5"
+        class="app-bar white pa-5 mb-10 red"
     >
         <div class="d-flex align-center">
             <v-img
@@ -28,57 +28,37 @@
 
         <ul>
             <v-btn
-                :class=btn.class
                 plain
                 exact
                 v-for="btn in navBtns"
+                :class=btn.class
                 :key="btn.name"
-                :elevation=btn.elevation
-                :to="btn.route"
-                @click="btn.onClick"
+                :href=btn.url
             >
                 {{btn.text}}
             </v-btn>
+            <v-icon>mdi-github</v-icon>
+            <v-icon>mdi-linkedin</v-icon>
+            <v-icon>mdi-weather-night</v-icon>
+            <v-icon>mdi-white-balance-sunny</v-icon>
         </ul>
     </v-app-bar>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import routes from "@/lib/routes";
 
 export default {
     name: "TheNavBar",
     data () {
         return {
-            commonNavBtns: [
-                { text: "Home", route: { name: "Home" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } },
-                { text: "About", route: { name: "About" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } }
+            navBtns: [
+                { text: "Home", url: routes.home, class: "transparent black--text mx-3 active-class" },
+                { text: "Blog", url: routes.blog, class: "transparent black--text mx-3" },
+                { text: "Contact", url: routes.contact, class: "transparent black--text mx-3" },
             ],
-            loggedOutNavBtns: [
-                { text: "Log In", route: { name: "LogIn" }, class: "transparent black--text mx-3", elevation: "0", onClick: () => { } },
-                { text: "Sign Up", route: { name: "SignUp" }, class: "black white--text mx-3", elevation: "3", onClick: () => { } }
-            ],
-            loggedInNavBtns: [
-                { text: "Log Out", route: { name: "Home" }, class: "transparent black--text mx-3", elevation: "0", onClick: this.logOutHandler }
-            ]
         };
     },
-    computed: {
-        ...mapGetters("user", ["isLoggedIn"]),
-        navBtns () {
-            if (this.isLoggedIn) {
-                return [...this.commonNavBtns, ...this.loggedInNavBtns];
-            } else {
-                return [...this.commonNavBtns, ...this.loggedOutNavBtns];
-            }
-        }
-    },
-    methods: {
-        ...mapActions("user", ["logOut"]),
-        logOutHandler () {
-            this.logOut();
-        }
-    }
 };
 </script>
 

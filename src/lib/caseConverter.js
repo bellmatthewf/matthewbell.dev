@@ -78,5 +78,5 @@ class CaseConverter {
 }
 
 export {
-    CaseConverter
+    CaseConverter,
 };

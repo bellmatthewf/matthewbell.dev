@@ -3,13 +3,13 @@ const api = {};
 const APP_API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
 
 const headers = {
-    "Content-type": "application/json"
+    "Content-type": "application/json",
 };
 
 const options = () => {
     return {
         headers,
-        credentials: "include"
+        credentials: "include",
     };
 };
 
@@ -21,14 +21,14 @@ const parseJSON = (response) => {
                 return Object.assign(json, {
                     ok: response.ok,
                     status: response.status,
-                    statusText: response.statusText
+                    statusText: response.statusText,
                 });
             })
             .catch(() => {
                 return {
                     ok: response.ok,
                     status: response.status,
-                    statusText: response.statusText
+                    statusText: response.statusText,
                 };
             });
     } catch (e) {
@@ -48,7 +48,7 @@ api.post = (endpoint, data) => {
     const fullURL = APP_API_BASE_URL + endpoint;
     const opts = Object.assign(options(), {
         method: "POST",
-        body: data
+        body: data,
     });
     return fetch(fullURL, opts)
         .then(parseJSON)

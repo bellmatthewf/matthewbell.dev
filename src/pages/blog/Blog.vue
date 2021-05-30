@@ -1,25 +1,23 @@
 <template>
     <v-app>
-        <NotificationList />
         <NavigationBar />
 
         <v-main>
-            <router-view />
+            <h1>HELLOoo</h1>
         </v-main>
     </v-app>
 </template>
 
 <script>
 import NavigationBar from "@/components/NavigationBar";
-import NotificationList from "@/components/NotificationList";
 
 export default {
-    name: "App",
-    components: { NavigationBar, NotificationList },
+    name: "Blog",
+    components: { NavigationBar },
     computed: {
         theme () {
             return (this.$vuetify.theme.dark) ? "dark" : "light";
-        }
-    }
+        },
+    },
 };
 </script>

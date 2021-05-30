@@ -17,53 +17,53 @@ const routes = [
         path: "/",
         alias: "/home",
         name: "Home",
-        component: Home
+        component: Home,
     },
     {
         path: "/about",
         name: "About",
-        component: About
+        component: About,
     },
     {
         path: "/sign-up",
         name: "SignUp",
-        component: SignUp
+        component: SignUp,
     },
     {
         path: "/log-in",
         name: "LogIn",
-        component: LogIn
+        component: LogIn,
     },
     {
         path: "/verify-email/:token",
         name: "VerifyEmail",
-        component: VerifyEmail
+        component: VerifyEmail,
     },
     {
         path: "/forgot-password",
         name: "ForgotPassword",
-        component: ForgotPassword
+        component: ForgotPassword,
     },
     {
         path: "/reset-password/:token",
         name: "ResetPassword",
-        component: ResetPassword
+        component: ResetPassword,
     },
     {
         path: "/404",
         name: "PageNotFound",
-        component: PageNotFound
+        component: PageNotFound,
     },
     {
         path: "*",
-        redirect: "/404"
-    }
+        redirect: "/404",
+    },
 ];
 
 const router = new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
-    routes
+    routes,
 });
 
 export default router;
