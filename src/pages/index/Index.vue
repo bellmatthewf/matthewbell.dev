@@ -1,9 +1,12 @@
 <template>
-    <v-app :class="classObject">
+    <v-app>
         <TheNavBar />
 
         <v-main>
-            <h1>Matthew Bell</h1>
+            <h1
+                v-for="index in 100"
+                :key="index"
+            >Matthew Bell</h1>
         </v-main>
     </v-app>
 </template>
@@ -14,32 +17,68 @@ import TheNavBar from "@/components/TheNavBar";
 export default {
     name: "Index",
     components: { TheNavBar },
-    computed: {
-        classObject () {
-            return (this.$vuetify.theme.dark) ? "dark" : "light";
+    created () {
+        this.initTheme();
+    },
+    methods: {
+        async initTheme () {
+            const cachedDarkMode = localStorage.getItem("vue-dark-mode");
+            if (cachedDarkMode != null) {
+                this.$vuetify.theme.dark = (cachedDarkMode === "true");
+                return;
+            }
+
+            const systemDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (systemDarkMode != null) {
+                this.$vuetify.theme.dark = systemDarkMode;
+            }
         },
     },
+    // computed: {
+    //     isDark () {
+    //         return this.$vuetify.theme.isDark;
+    //     },
+    // },
 };
 </script>
 
 <style lang="scss">
+$red: red;
+
+@function set-color($color) {
+    @if (lightness($color) > 50) {
+        // @return darken($color, 50%);
+        @return $color;
+    } @else {
+        @return lighten($color, 0.9);
+        @return $color;
+    }
+}
+
+:root {
+    background: var(--v-primary-base);
+    scrollbar-color: var(--v-divergent-base) var(--v-primary-base);
+    scrollbar-width: thin;
+}
+
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: var(--v-primary-base);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(44, 44, 44);
+    background: var(--v-divergent-base);
+    opacity: 0;
 
     /* Handle on hover */
     &:hover {
-        background: rgb(150, 38, 141);
+        background: var(--v-more-divergent-base);
     }
 }
 </style>

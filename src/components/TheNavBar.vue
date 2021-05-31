@@ -2,7 +2,8 @@
     <v-app-bar
         app
         flat
-        class="app-bar transparent"
+        class="app-bar primary"
+        height="88"
     >
         <div class="d-flex align-center">
             <a :href="routes.home">
@@ -35,6 +36,7 @@
                 <v-btn
                     plain
                     exact
+                    medium
                     v-for="btn in navBtns"
                     :key=btn.name
                     :ripple="false"
@@ -101,7 +103,7 @@ export default {
     methods: {
         toggleTheme () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-            window.localStorage.setItem("vue-dark-mode", this.$vuetify.theme.dark);
+            localStorage.setItem("vue-dark-mode", this.$vuetify.theme.dark);
         },
     },
 };
