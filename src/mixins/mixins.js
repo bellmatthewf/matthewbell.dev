@@ -3,7 +3,7 @@ const initTheme = {
         this.initTheme();
     },
     methods: {
-        async initTheme () {
+        initTheme () {
             const cachedDarkMode = localStorage.getItem("vue-dark-mode");
             if (cachedDarkMode != null) {
                 this.$vuetify.theme.dark = (cachedDarkMode === "true");
