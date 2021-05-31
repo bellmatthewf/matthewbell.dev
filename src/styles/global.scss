@@ -1,3 +1,26 @@
 :root {
-    background: green;
+    background: var(--v-primary-base);
+    scrollbar-color: var(--v-divergent-base) var(--v-primary-base);
+    scrollbar-width: thin;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--v-primary-base);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--v-divergent-base);
+    opacity: 0;
+
+    /* Handle on hover */
+    &:hover {
+        background: var(--v-more-divergent-base);
+    }
 }

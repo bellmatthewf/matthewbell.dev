@@ -10,14 +10,15 @@
 
 <script>
 import TheNavBar from "@/components/TheNavBar";
+import { initTheme } from "@/mixins/mixins";
 
 export default {
     name: "Blog",
     components: { TheNavBar },
-    computed: {
-        theme () {
-            return (this.$vuetify.theme.dark) ? "dark" : "light";
-        },
-    },
+    mixins: [initTheme],
 };
 </script>
+
+<style lang="scss">
+@import "../../styles/global";
+</style>
