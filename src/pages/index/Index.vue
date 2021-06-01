@@ -3,10 +3,11 @@
         <TheNavBar />
 
         <v-main>
-            <h1
-                v-for="index in 100"
-                :key="index"
-            >Matthew Bell</h1>
+            <div class="d-flex flex-column content">
+                <h1>Matt Bell</h1>
+                <p>Hi, I'm Matt. I'm a Software Engineer working at Partnerstack</p>
+            </div>
+
         </v-main>
     </v-app>
 </template>
