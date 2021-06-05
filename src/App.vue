@@ -1,10 +1,25 @@
-const initTheme = {
+<template>
+    <v-app>
+        <TheNavBar />
+
+        <v-main>
+            <router-view />
+        </v-main>
+    </v-app>
+</template>
+
+<script>
+import TheNavBar from "@/components/TheNavBar";
+
+export default {
+    name: "Home",
+    components: { TheNavBar },
     created () {
-        this.initTheme();
+        this.setupTheme();
     },
     methods: {
-        initTheme () {
-            const cachedDarkMode = localStorage.getItem("vue-dark-mode");
+        setupTheme () {
+            const cachedDarkMode = localStorage.getItem("dark-mode");
             if (cachedDarkMode != null) {
                 this.$vuetify.theme.dark = (cachedDarkMode === "true");
                 return;
@@ -17,5 +32,7 @@ const initTheme = {
         },
     },
 };
+</script>
 
-export { initTheme };
+<style lang="scss">
+</style>

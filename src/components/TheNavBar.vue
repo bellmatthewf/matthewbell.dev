@@ -6,27 +6,27 @@
         height="88"
     >
         <div class="d-flex align-center">
-            <a :href="routes.home">
-                <v-img
-                    alt="Vuetify Logo"
-                    class="shrink mr-2"
-                    contain
-                    src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-                    transition="scale-transition"
-                    width="40"
-                />
-            </a>
+            <!-- <a :href="routes.home"> -->
+            <v-img
+                alt="Vuetify Logo"
+                class="shrink mr-2"
+                contain
+                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+                transition="scale-transition"
+                width="40"
+            />
+            <!-- </a> -->
 
-            <a :href="routes.home">
-                <v-img
-                    alt="Vuetify Name"
-                    class="shrink mt-1 hidden-sm-and-down"
-                    contain
-                    min-width="100"
-                    src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-                    width="100"
-                />
-            </a>
+            <!-- <a :href="routes.home"> -->
+            <v-img
+                alt="Vuetify Name"
+                class="shrink mt-1 hidden-sm-and-down"
+                contain
+                min-width="100"
+                src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+                width="100"
+            />
+            <!-- </a> -->
 
         </div>
 
@@ -40,7 +40,7 @@
                     v-for="btn in navBtns"
                     :key=btn.name
                     :ripple="false"
-                    :href=btn.url
+                    :to=btn.route.name
                 >
                     {{btn.text}}
                 </v-btn>
@@ -51,7 +51,7 @@
                     v-for="btn in navIcons"
                     :key=btn.icon
                     :ripple="false"
-                    :href=btn.url
+                    :href=btn.route
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -73,21 +73,18 @@
 </template>
 
 <script>
-import routes from "@/lib/routes";
-
 export default {
     name: "TheNavBar",
     data () {
         return {
-            routes,
             navBtns: [
-                { text: "Home", url: routes.home },
-                { text: "Blog", url: routes.blog },
-                { text: "Contact", url: routes.contact },
+                { text: "Home", route: { name: "home" } },
+                { text: "Blog", route: { name: "blog" } },
+                { text: "Contact", route: { name: "contact" } },
             ],
             navIcons: [
-                { icon: "mdi-github", url: "https://github.com/bellmatthewf" },
-                { icon: "mdi-linkedin", url: "https://www.linkedin.com/in/matthewfbell/" },
+                { icon: "mdi-github", route: "https://github.com/bellmatthewf" },
+                { icon: "mdi-linkedin", route: "https://www.linkedin.com/in/matthewfbell/" },
             ],
         };
     },
@@ -103,7 +100,7 @@ export default {
     methods: {
         toggleTheme () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-            localStorage.setItem("vue-dark-mode", this.$vuetify.theme.dark);
+            localStorage.setItem("dark-mode", this.$vuetify.theme.dark);
         },
     },
 };
