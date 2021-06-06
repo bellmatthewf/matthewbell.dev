@@ -1,5 +1,5 @@
 
-import "@/styles/nprogress_overrides.css";
+import "@/styles/nprogress_overrides.scss";
 import NProgress from "nprogress";
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -8,6 +8,7 @@ Vue.use(VueRouter);
 
 const Home = () => import("@/views/Home.vue");
 const Blog = () => import("@/views/Blog.vue");
+const BlogPost = () => import("@/views/BlogPost.vue");
 const Contact = () => import("@/views/Contact.vue");
 const PageNotFound = () => import("@/views/PageNotFound.vue");
 
@@ -22,6 +23,10 @@ const routes = [
         path: "/blog",
         name: "Blog",
         component: Blog,
+    }, {
+        path: "/blog/:postName",
+        name: "creator",
+        component: BlogPost,
     },
     {
         path: "/contact",
@@ -48,7 +53,6 @@ const router = new VueRouter({
 router.beforeResolve((to, from, next) => {
     // If this isn't an initial page load.
     if (to.name) {
-        // Start the route progress bar.
         NProgress.start();
         NProgress.set(0.1);
     }
@@ -56,7 +60,6 @@ router.beforeResolve((to, from, next) => {
 });
 
 router.afterEach((to, from) => {
-    // Complete the animation of the route progress bar.
     NProgress.done();
 });
 
