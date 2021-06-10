@@ -2,13 +2,15 @@
     <div>
         <p>{{postName}}</p>
 
-        <span v-html="md"></span>
+        <div
+            class="content"
+            v-html="md"
+        ></div>
     </div>
 </template>
 
 <script>
-import marked from "marked";
-import md from "./home.md";
+// import marked from "marked";
 
 export default {
     name: "BlogPost",
@@ -18,14 +20,20 @@ export default {
             md: undefined,
         };
     },
-    created () {
-        console.log(md);
-        // const md = fs.readFileSync("home.md", "utf-8");
-        // console.log(md);
-        this.md = marked(md);
-    },
+    // async created () {
+    //     // console.log(md);
+
+    //     const md = await fetch("http://localhost:8081/posts/home.md", { method: "GET" });
+    //     const res = await md.content;
+    //     console.log(md);
+    //     console.log(res);
+    //     // const md = fs.readFileSync("home.md", "utf-8");
+    //     // console.log(md);
+    //     // this.md = marked(md);
+    // },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "../styles/blog_post.scss";
 </style>

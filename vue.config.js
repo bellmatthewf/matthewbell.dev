@@ -1,4 +1,9 @@
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
+    publicPath: process.env.NODE_ENV === "production"
+        ? "/dist/"
+        : "/",
     transpileDependencies: [
         "vuetify",
     ],
@@ -16,15 +21,12 @@ module.exports = {
         },
     },
     configureWebpack: {
-        module: {
-            rules: [{
-                test: /\.md$/,
-                use: [
-                    { loader: "html-loader" },
-                    { loader: "markdown-loader", options: {} },
+        plugins: [
+            new CopyPlugin({
+                patterns: [
+                    { from: "src/posts", to: "posts" },
                 ],
-            },
-            ],
-        },
+            }),
+        ],
     },
 };
