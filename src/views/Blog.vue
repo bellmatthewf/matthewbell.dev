@@ -18,6 +18,14 @@ export default {
     },
     async created () {
         // console.log(md);
+        console.log(process.env.NODE_ENV);
+        console.log(process.env.hello);
+
+        // Injected by webpack
+        // eslint-disable-next-line no-undef
+        console.log(TWO);
+
+        // console.log(TWo);
 
         const md = await fetch("http://localhost:8081/posts/home.md");
         const res = await md.text();
