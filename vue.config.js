@@ -5,14 +5,14 @@ const fs = require("fs");
 const fm = require("front-matter");
 
 function getBlogData () {
-    const BlogData = [];
-    const dirPath = "./src/posts/blog";
-    fs.readdirSync(dirPath).forEach(file => {
-        const data = fs.readFileSync(path.join(dirPath, file), "utf-8");
+    const blogData = [];
+    const blogPostPath = "./src/posts/blog";
+    fs.readdirSync(blogPostPath).forEach(file => {
+        const data = fs.readFileSync(path.join(blogPostPath, file), "utf-8");
         const fmData = fm(data);
-        BlogData.push(fmData.attributes);
+        blogData.push(fmData.attributes);
     });
-    return BlogData;
+    return blogData;
 }
 
 module.exports = {
