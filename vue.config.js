@@ -2,21 +2,18 @@ const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
 const fs = require("fs");
+const fm = require("front-matter");
 
-// Joining path of directory
-const directoryPath = path.join(__dirname, "Documents");
-// Passing directoryPath and callback function
-fs.readdir(directoryPath, function (err, files) {
-    // handling error
-    if (err) {
-        return console.log("Unable to scan directory: " + err);
-    }
-    // listing all files using forEach
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
+function getBlogData () {
+    const BlogData = [];
+    const dirPath = "./src/posts/blog";
+    fs.readdirSync(dirPath).forEach(file => {
+        const data = fs.readFileSync(path.join(dirPath, file), "utf-8");
+        const fmData = fm(data);
+        BlogData.push(fmData.attributes);
     });
-});
+    return BlogData;
+}
 
 module.exports = {
     publicPath: process.env.NODE_ENV === "production"
@@ -41,8 +38,7 @@ module.exports = {
     configureWebpack: {
         plugins: [
             new webpack.DefinePlugin({
-                TWO: JSON.stringify("test-value"),
-                "process.env.hello": "'wporld deww'",
+                "process.env.blogData": JSON.stringify(getBlogData()),
             }),
             new CopyPlugin({
                 patterns: [
