@@ -1,42 +1,35 @@
 <template>
     <div>
-        <p>MAIN PAGE </p>
-        <div v-html="md"></div>
+        <PostLink
+            v-for="post in blogData"
+            :key="post.filename"
+            :filename="post.filename"
+            :title="post.title"
+            :date="post.date"
+            :duration="post.duration"
+            :tags="post.tags"
+        />
     </div>
 </template>
 
 <script>
-import marked from "marked";
-import fm from "front-matter";
+import PostLink from "@/components/PostLink";
 
 export default {
     name: "Blog",
+    components: {
+        PostLink,
+    },
     data () {
         return {
             md: undefined,
         };
     },
-    async created () {
-        // console.log(md);
-        // console.log(process.env.NODE_ENV);
-        console.log(process.env.blogData);
-
-        // Injected by webpack
-        // eslint-disable-next-line no-undef
-        // console.log(TWO);
-
-        // console.log(TWo);
-
-        const md = await fetch("http://localhost:8081/posts/home.md");
-        const res = await md.text();
-        // console.log(res);
-        const fmContent = fm(res, { allowUnsafe: true });
-        // console.log(fmContent);
-        // console.log(fmContent.attributes);
-        // console.log(fmContent);
-        // const md = fs.readFileSync("home.md", "utf-8");
-        // console.log(md);
-        this.md = marked(fmContent.body);
+    computed: {
+        blogData () {
+            // Injected by webpack
+            return process.env.VUE_APP_BLOG_DATA;
+        },
     },
 };
 </script>

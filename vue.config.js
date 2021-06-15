@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const fm = require("front-matter");
 
-// This function will be used to inject our blog data directly into our app as part of our .env file.
+// Used to inject blog data directly into our app as part of our .env file.
 // Because we copy our markdown files directly into our build and fetch them as needed,
 // this allows us to load in all frontmatter data without sending a request for each post.
 function getBlogData () {
@@ -41,7 +41,7 @@ module.exports = {
     configureWebpack: {
         plugins: [
             new webpack.DefinePlugin({
-                "process.env.blogData": JSON.stringify(getBlogData()),
+                "process.env.VUE_APP_BLOG_DATA": JSON.stringify(getBlogData()),
             }),
             new CopyPlugin({
                 patterns: [
