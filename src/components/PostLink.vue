@@ -7,7 +7,6 @@
             :key=tag
             :color=allowedTags[tag]
             class="mx-1"
-            small
         >
             {{tag}}
         </v-chip>
