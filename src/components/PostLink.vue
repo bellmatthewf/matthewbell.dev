@@ -5,8 +5,8 @@
         <v-chip
             v-for="tag in tags"
             :key=tag
-            :color=allowedTags[tag]
-            class="mx-1"
+            class="mr-1"
+            small
         >
             {{tag}}
         </v-chip>
@@ -14,10 +14,12 @@
 </template>
 
 <script>
-const allowedTags = {
-    Reflection: "green",
-    "Book Review": "#123422",
-};
+const allowedTags = [
+    "Reflection",
+    "Book Review",
+    "Technical",
+    "Non-technical",
+];
 
 export default {
     name: "PostLink",
@@ -46,10 +48,10 @@ export default {
         tags: {
             type: Array,
             require: false,
-            validator: function (arr) {
+            validator: arr => {
                 arr.forEach(tag => {
-                    if (!(tag in allowedTags)) {
-                        return false;
+                    if (!(allowedTags.includes(tag))) {
+                        throw new Error("Invalid blog tag");
                     }
                 });
                 return true;
