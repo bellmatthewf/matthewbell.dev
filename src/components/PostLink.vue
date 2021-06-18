@@ -1,6 +1,6 @@
 <template>
     <div class="mb-10">
-        <router-link :to="{name: 'blogPost', params: {postName: this.title}}">
+        <router-link :to="{name: 'BlogPost', params: {filename}}">
             <h3 class="my-0 blog-title divergent-5--text">{{title}}</h3>
         </router-link>
         <h6 class="mb-0 subtitle-2 divergent-3--text"><span>{{date}}</span> <span class="divergent-2--text"> - {{duration}}</span></h6>

@@ -40,7 +40,7 @@
                     v-for="btn in navBtns"
                     :key=btn.name
                     :ripple="false"
-                    :to=btn.route.name
+                    :to=btn.route
                 >
                     {{btn.text}}
                 </v-btn>
@@ -78,9 +78,9 @@ export default {
     data () {
         return {
             navBtns: [
-                { text: "Home", route: { name: "home" } },
-                { text: "Blog", route: { name: "blog" } },
-                { text: "Contact", route: { name: "contact" } },
+                { text: "Home", route: { name: "Home" } },
+                { text: "Blog", route: { name: "Blog" } },
+                { text: "Contact", route: { name: "Contact" } },
             ],
             navIcons: [
                 { icon: "mdi-github", route: "https://github.com/bellmatthewf" },

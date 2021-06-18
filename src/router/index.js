@@ -24,8 +24,8 @@ const routes = [
         name: "Blog",
         component: Blog,
     }, {
-        path: "/blog/:postName",
-        name: "blogPost",
+        path: "/blog/:filename",
+        name: "BlogPost",
         component: BlogPost,
     },
     {

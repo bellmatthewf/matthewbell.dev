@@ -1,7 +1,5 @@
 <template>
     <div>
-        <p>{{postName}}</p>
-
         <div v-html="md"></div>
     </div>
 </template>
@@ -14,16 +12,15 @@ export default {
     name: "BlogPost",
     data () {
         return {
-            postName: this.$route.params.postName,
+            filename: this.$route.params.filename,
             md: undefined,
         };
     },
     async created () {
-        // console.log(process.env.blogData);
-
-        const md = await fetch("http://localhost:8081/posts/home.md");
+        const postPath = `${process.env.VUE_APP_DOMAIN}/posts/blog/${this.filename}.md`;
+        const md = await fetch(postPath);
         const res = await md.text();
-        const fmContent = fm(res, { allowUnsafe: true });
+        const fmContent = fm(res);
         this.md = marked(fmContent.body);
     },
 };
