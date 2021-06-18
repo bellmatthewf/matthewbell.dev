@@ -1,22 +1,15 @@
 <template>
-    <div>
-        <v-select
-            v-model="filterValues"
-            :items="blogDataTags"
-            label="Filter by Tag"
-            item-color="info"
-            chips
-            multiple
-            solo
-        />
+    <div class="content">
+        <h1 class="mt-16 mb-8"><span class="divergent-4--text">Matt's </span>Writing</h1>
         <PostLink
-            v-for="post in filteredBlogData"
+            v-for="post in filteredPosts"
             :key="post.filename"
             :filename="post.filename"
             :title="post.title"
             :date="post.date"
             :duration="post.duration"
             :tags="post.tags"
+            @chipClicked="handleChipClicked"
         />
     </div>
 </template>
@@ -31,35 +24,62 @@ export default {
     },
     data () {
         return {
+            posts: {},
             md: undefined,
-            filterValues: "",
+            activeTagNames: [],
+            activeColor: "#AEC6CF",
         };
     },
+    created () {
+        // Injected by webpack
+        const posts = process.env.VUE_APP_BLOG_DATA;
+        posts.forEach(post => {
+            post.tags = post.tags.map(tag => {
+                return { name: tag, isActive: false };
+            });
+        });
+        this.posts = posts;
+    },
     computed: {
-        blogData () {
-            // Injected by webpack
-            return process.env.VUE_APP_BLOG_DATA;
+        filteredPosts () {
+            if (!(this.activeTagNames.length)) {
+                return this.posts;
+            }
+            return this.posts.filter(post => {
+                const postTagsArr = post.tags.map(tag => tag.name);
+                return this.arraysContainCommonPrimitive(postTagsArr, this.activeTagNames);
+            });
         },
-        blogDataTags () {
-            const tagsList = new Set();
-            this.blogData.forEach(postData => {
-                postData.tags.forEach(tag => {
-                    tagsList.add(tag);
+    },
+    methods: {
+        handleChipClicked (tagName) {
+            this.toggleActiveChip(tagName);
+            this.toggleChipColours(tagName);
+        },
+        toggleActiveChip (tagName) {
+            const idx = this.activeTagNames.indexOf(tagName);
+            if (idx >= 0) {
+                this.activeTagNames.splice(idx, 1);
+                return;
+            }
+            this.activeTagNames.push(tagName);
+        },
+        toggleChipColours (tagName) {
+            this.posts.forEach(post => {
+                post.tags.forEach(tag => {
+                    if (tag.name === tagName) {
+                        tag.isActive = !tag.isActive;
+                    }
                 });
             });
-            return Array.from(tagsList);
         },
-        filteredBlogData () {
-            if (!this.filterValues.length) {
-                return this.blogData;
-            }
-            return this.blogData.filter(postData => {
-                return this.filterValues.some(filterVal => postData.tags.includes(filterVal));
-            });
+        arraysContainCommonPrimitive (arr1, arr2) {
+            return arr1.some(el => arr2.includes(el));
         },
     },
 };
 </script>
 
 <style lang="scss">
+@import "../styles/blog_post.scss";
 </style>

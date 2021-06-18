@@ -1,6 +1,6 @@
 :root {
     background: var(--v-primary-base);
-    scrollbar-color: var(--v-divergent-base) var(--v-primary-base);
+    scrollbar-color: var(--v-divergent-1) var(--v-primary-base);
     scrollbar-width: thin;
     margin: 0 25px 0 25px
 }
@@ -17,11 +17,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--v-divergent-base);
+    background: var(--v-divergent-1);
     opacity: 0;
 
     /* Handle on hover */
     &:hover {
-        background: var(--v-more-divergent-base);
+        background: var(--v-more-divergent-2);
     }
 }

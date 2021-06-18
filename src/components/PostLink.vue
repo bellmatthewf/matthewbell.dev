@@ -1,19 +1,25 @@
 <template>
     <div class="mb-10">
-        <p class="my-0">{{title}}</p>
-        <p class="my-0">{{date}} - {{duration}}</p>
+        <router-link :to="{name: 'blogPost', params: {postName: this.title}}">
+            <h3 class="my-0 blog-title divergent-5--text">{{title}}</h3>
+        </router-link>
+        <h6 class="mb-0 subtitle-2 divergent-3--text"><span>{{date}}</span> <span class="divergent-2--text"> - {{duration}}</span></h6>
         <v-chip
             v-for="tag in tags"
-            :key=tag
+            :key=tag.name
+            @click="chipClicked(tag.name)"
             class="mr-1"
+            :color="getColor(tag.isActive)"
             small
         >
-            {{tag}}
+            {{tag.name}}
         </v-chip>
     </div>
 </template>
 
 <script>
+// import Vue from "vue";
+
 const allowedTags = [
     "Reflection",
     "Book Review",
@@ -26,6 +32,7 @@ export default {
     data () {
         return {
             allowedTags,
+            activeTagColor: "red",
         };
     },
     props: {
@@ -50,7 +57,7 @@ export default {
             require: false,
             validator: arr => {
                 arr.forEach(tag => {
-                    if (!(allowedTags.includes(tag))) {
+                    if (!(allowedTags.includes(tag.name))) {
                         throw new Error("Invalid blog tag");
                     }
                 });
@@ -58,8 +65,41 @@ export default {
             },
         },
     },
+    // watch: {
+    //     tags: {
+    //         immediate: true,
+    //         deep: true,
+    //         handler (tags) {
+    //             console.log("WATCHER FIRING", tags);
+    //             tags.forEach(tag => {
+    //                 Vue.set(this.tagsColors, tag.name, tag.color);
+    //             });
+    //         },
+    //     },
+    // },
+    methods: {
+        chipClicked (tagName) {
+            this.$emit("chipClicked", tagName);
+        },
+        getColor (isActive) {
+            return isActive ? this.activeTagColor : "";
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
+.blog-title {
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    line-height: 1.15;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.v-chip ::v-deep .v-chip__content {
+    cursor: pointer;
+}
 </style>
