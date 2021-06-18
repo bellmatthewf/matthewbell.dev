@@ -29,12 +29,6 @@ const allowedTags = [
 
 export default {
     name: "PostLink",
-    data () {
-        return {
-            allowedTags,
-            activeTagColor: "red",
-        };
-    },
     props: {
         filename: {
             type: String,
@@ -65,24 +59,12 @@ export default {
             },
         },
     },
-    // watch: {
-    //     tags: {
-    //         immediate: true,
-    //         deep: true,
-    //         handler (tags) {
-    //             console.log("WATCHER FIRING", tags);
-    //             tags.forEach(tag => {
-    //                 Vue.set(this.tagsColors, tag.name, tag.color);
-    //             });
-    //         },
-    //     },
-    // },
     methods: {
         chipClicked (tagName) {
             this.$emit("chipClicked", tagName);
         },
         getColor (isActive) {
-            return isActive ? this.activeTagColor : "";
+            return isActive ? "grey" : "";
         },
     },
 };
@@ -99,7 +81,11 @@ export default {
     }
 }
 
-.v-chip ::v-deep .v-chip__content {
-    cursor: pointer;
+.v-chip {
+    opacity: 0.7;
+
+    &::v-deep .v-chip__content {
+        cursor: pointer;
+    }
 }
 </style>

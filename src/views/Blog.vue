@@ -47,14 +47,14 @@ export default {
             }
             return this.posts.filter(post => {
                 const postTagsArr = post.tags.map(tag => tag.name);
-                return this.arraysContainCommonPrimitive(postTagsArr, this.activeTagNames);
+                return this.containsCommonPrimitive(postTagsArr, this.activeTagNames);
             });
         },
     },
     methods: {
         handleChipClicked (tagName) {
             this.toggleActiveChip(tagName);
-            this.toggleChipColours(tagName);
+            this.toggleChipColour(tagName);
         },
         toggleActiveChip (tagName) {
             const idx = this.activeTagNames.indexOf(tagName);
@@ -64,7 +64,7 @@ export default {
             }
             this.activeTagNames.push(tagName);
         },
-        toggleChipColours (tagName) {
+        toggleChipColour (tagName) {
             this.posts.forEach(post => {
                 post.tags.forEach(tag => {
                     if (tag.name === tagName) {
@@ -73,7 +73,7 @@ export default {
                 });
             });
         },
-        arraysContainCommonPrimitive (arr1, arr2) {
+        containsCommonPrimitive (arr1, arr2) {
             return arr1.some(el => arr2.includes(el));
         },
     },
