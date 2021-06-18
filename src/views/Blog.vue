@@ -16,6 +16,7 @@
 
 <script>
 import PostLink from "@/components/PostLink";
+import { containsCommonPrimitive, sortArrayOfObjects } from "@/lib/utils";
 
 export default {
     name: "Blog",
@@ -38,6 +39,7 @@ export default {
                 return { name: tag, isActive: false };
             });
         });
+        sortArrayOfObjects(posts, "date", true);
         this.posts = posts;
     },
     computed: {
@@ -47,7 +49,7 @@ export default {
             }
             return this.posts.filter(post => {
                 const postTagsArr = post.tags.map(tag => tag.name);
-                return this.containsCommonPrimitive(postTagsArr, this.activeTagNames);
+                return containsCommonPrimitive(postTagsArr, this.activeTagNames);
             });
         },
     },
@@ -72,9 +74,6 @@ export default {
                     }
                 });
             });
-        },
-        containsCommonPrimitive (arr1, arr2) {
-            return arr1.some(el => arr2.includes(el));
         },
     },
 };
