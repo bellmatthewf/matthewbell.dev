@@ -18,13 +18,12 @@
 </template>
 
 <script>
-// import Vue from "vue";
-
 const allowedTags = [
     "Reflection",
     "Book Review",
     "Technical",
     "Non-technical",
+    "Project",
 ];
 
 export default {
