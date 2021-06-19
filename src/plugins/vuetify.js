@@ -6,9 +6,6 @@ const vuetify = new Vuetify({
         themes: {
             light: {
                 primary: "#FFF",
-                // secondary: colors.grey.darken1,
-                // accent: colors.shades.black,
-                // error: colors.red.accent3,
                 "divergent-1": "#E8E8E8",
                 "divergent-2": "#D2D2D2",
                 "divergent-3": "#BBBBBB",

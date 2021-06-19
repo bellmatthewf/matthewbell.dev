@@ -5,30 +5,24 @@
         class="app-bar primary"
         height="88"
     >
-        <div class="d-flex align-center">
-            <!-- <a :href="routes.home"> -->
+        <router-link :to="{name: 'Home'}">
             <v-img
-                alt="Vuetify Logo"
-                class="shrink mr-2"
-                contain
-                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+                v-show="isDark"
+                src="/logo_dark.svg"
+                alt="logo"
                 transition="scale-transition"
                 width="40"
-            />
-            <!-- </a> -->
-
-            <!-- <a :href="routes.home"> -->
-            <v-img
-                alt="Vuetify Name"
-                class="shrink mt-1 hidden-sm-and-down"
                 contain
-                min-width="100"
-                src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-                width="100"
             />
-            <!-- </a> -->
-
-        </div>
+            <v-img
+                v-show="!isDark"
+                src="/logo.svg"
+                alt="logo"
+                transition="scale-transition"
+                width="40"
+                contain
+            />
+        </router-link>
 
         <v-spacer></v-spacer>
         <div>
@@ -89,8 +83,11 @@ export default {
         };
     },
     computed: {
+        isDark () {
+            return this.$vuetify.theme.dark;
+        },
         themeIcon () {
-            if (this.$vuetify.theme.dark) {
+            if (this.isDark) {
                 return "mdi-white-balance-sunny";
             } else {
                 return "mdi-weather-night";
