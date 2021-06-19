@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <div v-html="md"></div>
+    <div class="content">
+        <div
+            v-html="md"
+            class="blog-post"
+        ></div>
     </div>
 </template>
 

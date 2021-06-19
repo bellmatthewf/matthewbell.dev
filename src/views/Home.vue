@@ -1,45 +1,31 @@
 <template>
-    <div>
-        <p>Hello world</p>
-        <!-- <span v-html="res"></span> -->
+    <div class="content">
+        <div
+            v-html="md"
+            class="blog-post"
+        ></div>
     </div>
 </template>
 
 <script>
-// import { markdownData } from "../posts/home.md";
-// export default {
-//     name: "Home",
-//     data () {
-//         return {
-//             res: undefined,
-//         };
-//     },
-//     created () {
-//         console.log(markdownData);
-//     },
-// };
+import marked from "marked";
 
 export default {
     name: "Home",
     data () {
         return {
-            fileContent: null,
-            rawContent: null,
+            md: undefined,
         };
     },
-    created () {
-        //  const fileToRender = `./assets/documentation/general/welcome.md`;
-        // const rawContent = ""; // Read the file content using fileToRender
-        // this.fileContent = "### marked(rawContent) should get executed";
-        // this.getContent(markdownData);
-    },
-    methods: {
-        getContent (md) {
-            this.fileContent = md;
-        },
+    async created () {
+        const postPath = `${process.env.VUE_APP_DOMAIN}/posts/home.md`;
+        const md = await fetch(postPath);
+        const res = await md.text();
+        this.md = marked(res);
     },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+@import "../styles/blog_post.scss";
 </style>

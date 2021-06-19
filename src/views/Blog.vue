@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <h1 class="mt-16 mb-8"><span class="divergent-4--text">Matt's </span>Writing</h1>
+        <h1 class="mb-8"><span class="divergent-4--text">Matt's </span>Writing</h1>
         <PostLink
             v-for="post in filteredPosts"
             :key="post.filename"
@@ -78,7 +78,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss">
-@import "../styles/blog_post.scss";
-</style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-16 content divergent-6--text">
+    <div class="content divergent-6--text">
         <h1 class="mb-5 divergent-11--text">Contact</h1>
         <p class="my-0 title">You can email me at <a
                 class="divergent-9--text"
