@@ -18,6 +18,7 @@ export default {
         };
     },
     async created () {
+        console.log("Can't you just assume that there are no errors?");
         const postPath = `${process.env.VUE_APP_DOMAIN}/posts/home.md`;
         const md = await fetch(postPath);
         const res = await md.text();
