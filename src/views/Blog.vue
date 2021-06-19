@@ -16,7 +16,7 @@
 
 <script>
 import PostLink from "@/components/PostLink";
-import { containsCommonPrimitive, sortArrayOfObjects } from "@/lib/utils";
+import { isSubsetOf, sortArrayOfObjects } from "@/lib/utils";
 
 export default {
     name: "Blog",
@@ -49,7 +49,7 @@ export default {
             }
             return this.posts.filter(post => {
                 const postTagsArr = post.tags.map(tag => tag.name);
-                return containsCommonPrimitive(postTagsArr, this.activeTagNames);
+                return isSubsetOf(this.activeTagNames, postTagsArr);
             });
         },
     },

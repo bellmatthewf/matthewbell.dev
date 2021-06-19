@@ -10,3 +10,7 @@ export function sortArrayOfObjects (arr, key, desc = false) {
         return a[key] > b[key] ? 1 : -1;
     });
 }
+
+export function isSubsetOf (arr1, arr2) {
+    return arr1.every(el => arr2.includes(el));
+}

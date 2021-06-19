@@ -15,12 +15,11 @@ export default {
     name: "BlogPost",
     data () {
         return {
-            filename: this.$route.params.filename,
             md: undefined,
         };
     },
     async created () {
-        const postPath = `${process.env.VUE_APP_DOMAIN}/posts/blog/${this.filename}.md`;
+        const postPath = `${process.env.VUE_APP_DOMAIN}/posts/blog/${this.$route.params.filename}.md`;
         const md = await fetch(postPath);
         const res = await md.text();
         const fmContent = fm(res);
@@ -29,6 +28,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../styles/blog_post.scss";
 </style>
