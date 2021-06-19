@@ -13,6 +13,10 @@ import TheNavBar from "@/components/TheNavBar";
 
 export default {
     name: "Home",
+    metaInfo: {
+        title: "Portfolio",
+        titleTemplate: "%s | Matt Bell",
+    },
     components: { TheNavBar },
     created () {
         this.setupTheme();

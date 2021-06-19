@@ -20,6 +20,9 @@ import { isSubsetOf, sortArrayOfObjects } from "@/lib/utils";
 
 export default {
     name: "Blog",
+    metaInfo: {
+        title: "Blog",
+    },
     components: {
         PostLink,
     },

@@ -12,6 +12,9 @@ import marked from "marked";
 
 export default {
     name: "Home",
+    metaInfo: {
+        title: "Home",
+    },
     data () {
         return {
             md: undefined,

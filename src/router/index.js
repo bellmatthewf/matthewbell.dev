@@ -2,8 +2,10 @@
 import "@/styles/nprogress_overrides.scss";
 import NProgress from "nprogress";
 import Vue from "vue";
+import VueMeta from "vue-meta";
 import VueRouter from "vue-router";
 
+Vue.use(VueMeta);
 Vue.use(VueRouter);
 
 const Home = () => import("@/views/Home.vue");

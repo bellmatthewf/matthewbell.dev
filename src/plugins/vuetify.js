@@ -5,7 +5,7 @@ const vuetify = new Vuetify({
     theme: {
         themes: {
             light: {
-                primary: "#FFF",
+                primary: "#FFFFFF",
                 "divergent-1": "#E8E8E8",
                 "divergent-2": "#D2D2D2",
                 "divergent-3": "#BBBBBB",

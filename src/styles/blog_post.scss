@@ -10,4 +10,28 @@
         opacity: .9;
     }
 
+    blockquote {
+        border-left-width: .25rem;
+        border-left: 4px solid var(--v-divergent-9-base);
+        margin-bottom: 1.6em;
+        line-height: 1.5em;
+        padding: .6em 1.2em;
+        opacity: .75;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        color: red;
+        text-decoration: 1px solid blue;
+        border-bottom: green;
+
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
 }

@@ -13,6 +13,9 @@ import fm from "front-matter";
 
 export default {
     name: "BlogPost",
+    metaInfo: {
+        title: "Blog",
+    },
     data () {
         return {
             md: undefined,
