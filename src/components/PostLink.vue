@@ -22,7 +22,7 @@ const allowedTags = [
     "Reflection",
     "Book Review",
     "Technical",
-    "Non-technical",
+    "Non-Technical",
     "Project",
 ];
 
