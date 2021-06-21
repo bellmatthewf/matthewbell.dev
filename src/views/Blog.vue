@@ -16,7 +16,7 @@
 
 <script>
 import PostLink from "@/components/PostLink";
-import { isSubsetOf, sortArrayOfObjects } from "@/lib/utils";
+import { isSubsetOf, sortArrayOfObjectsByKey } from "@/lib/utils";
 
 export default {
     name: "Blog",
@@ -42,7 +42,7 @@ export default {
                 return { name: tag, isActive: false };
             });
         });
-        sortArrayOfObjects(posts, "date", true);
+        sortArrayOfObjectsByKey(posts, "date", true);
         this.posts = posts;
     },
     computed: {

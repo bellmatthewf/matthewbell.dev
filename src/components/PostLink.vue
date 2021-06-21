@@ -5,7 +5,7 @@
         </router-link>
         <h6 class="mb-0 subtitle-2"><span class="divergent-6--text">{{date}}</span> <span class="divergent-4--text"> - {{duration}}</span></h6>
         <v-chip
-            v-for="tag in tags"
+            v-for="tag in sortedTags"
             :key=tag.name
             @click="chipClicked(tag.name)"
             class="mr-1"
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { sortArrayOfObjectsByKey } from "@/lib/utils";
+
 const allowedTags = [
     "Reflection",
     "Book Review",
@@ -56,6 +58,11 @@ export default {
                 });
                 return true;
             },
+        },
+    },
+    computed: {
+        sortedTags () {
+            return sortArrayOfObjectsByKey(this.tags, "name");
         },
     },
     methods: {
