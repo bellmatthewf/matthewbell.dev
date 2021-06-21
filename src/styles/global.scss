@@ -17,12 +17,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--v-divergent-1);
+    background: var(--v-divergent-2-base);
     opacity: 0;
 
     /* Handle on hover */
     &:hover {
-        background: var(--v-more-divergent-2);
+        background: var(--v-divergent-3-base);
     }
 }
 
