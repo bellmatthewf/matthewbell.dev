@@ -4,10 +4,14 @@
         margin-bottom: 30px;
     }
 
-    p {
+    p, li {
         font-size: 18px;
-        line-height: 28px;
         opacity: .9;
+        color: var(--v-divergent-9-base);;
+    }
+
+    p {
+        line-height: 1.65;
     }
 
     blockquote {
@@ -20,17 +24,20 @@
 
         p {
             margin-bottom: 0;
+
         }
     }
 
     a {
-        color: red;
-        text-decoration: 1px solid blue;
-        border-bottom: green;
+        color: var(--v-divergent-11-base);
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid var(--v-divergent-1-base);
+        transition: border .3s ease-in-out;
 
 
         &:hover {
-            opacity: 1;
+            border-bottom: 1px solid var(--v-divergent-11-base);
         }
     }
 

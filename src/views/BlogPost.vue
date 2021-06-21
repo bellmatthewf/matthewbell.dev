@@ -1,8 +1,10 @@
 <template>
     <div class="content">
+        <h1 class="mb-3">{{fmAttributes.title}}</h1>
+        <p class="mb-7 subtitle-1 divergent-5--text">{{fmAttributes.date}} - {{fmAttributes.duration}}</p>
         <div
             v-html="md"
-            class="blog-post"
+            class="blog-post mb-16"
         ></div>
     </div>
 </template>
@@ -19,6 +21,7 @@ export default {
     data () {
         return {
             md: undefined,
+            fmAttributes: {},
         };
     },
     async created () {
@@ -26,6 +29,8 @@ export default {
         const md = await fetch(postPath);
         const res = await md.text();
         const fmContent = fm(res);
+
+        this.fmAttributes = fmContent.attributes;
         this.md = marked(fmContent.body);
     },
 };
