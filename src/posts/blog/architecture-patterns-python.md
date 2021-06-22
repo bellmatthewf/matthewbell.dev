@@ -2,8 +2,8 @@
 filename: "architecture-patterns-python"
 title: "Learning Architecture Patterns with Python"
 date: "2021-06-19"
-duration: "10 mins"
-tags: ["Reflection", "Technical"]
+duration: "12 mins"
+tags: ["Reflection", "Technical", "Book Review"]
 ---
 
 It feels like there's a canyon sized gap when learning to code. There's an endless slew of beginner coding resources out there (for instance [Codecademy](https://www.codecademy.com/), [freeCodeCamp](https://www.freecodecamp.org/), or [w3Schools](https://www.w3schools.com/)). And there are equally as many advanced resources focused on highly specific topics like Webpack or parallel programming to name a couple.
@@ -59,4 +59,4 @@ This includes:
 - The service layer (not to be confused with services)
 - Unit of work pattern
 - Aggregates and consistency boundaries
--
+- Many chapters on event driven microsystems
