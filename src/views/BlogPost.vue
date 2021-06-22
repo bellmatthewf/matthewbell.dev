@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <h1 class="mb-3">{{fmAttributes.title}}</h1>
+        <h1 class="mb-1 blog-title">{{fmAttributes.title}}</h1>
         <p class="mb-7 subtitle-1 divergent-5--text">{{fmAttributes.date}} - {{fmAttributes.duration}}</p>
         <div
             v-html="renderedMd"
@@ -53,4 +53,8 @@ export default {
 
 <style scoped lang="scss">
 @import "../styles/blog_post.scss";
+
+.blog-title {
+    font-size: 36px;
+}
 </style>

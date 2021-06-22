@@ -7,7 +7,7 @@
         <v-chip
             v-for="tag in sortedTags"
             :key=tag.name
-            @click="chipClicked(tag.name)"
+            @click="emitChipClicked(tag.name)"
             class="mr-1"
             :color="getColor(tag.isActive)"
             small
@@ -66,7 +66,7 @@ export default {
         },
     },
     methods: {
-        chipClicked (tagName) {
+        emitChipClicked (tagName) {
             this.$emit("chipClicked", tagName);
         },
         getColor (isActive) {

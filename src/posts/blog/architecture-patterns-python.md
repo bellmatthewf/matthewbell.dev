@@ -8,23 +8,23 @@ tags: ["Reflection", "Technical"]
 
 It feels like there's a canyon sized gap when learning to code. There's an endless slew of beginner coding resources out there (for instance [Codecademy](https://www.codecademy.com/), [freeCodeCamp](https://www.freecodecamp.org/), or [w3Schools](https://www.w3schools.com/)). And there are equally as many advanced resources focused on highly specific topics like Webpack or parallel programming to name a couple.
 
-There aren't many resources that focus more broadly on improving your coding once you understand the fundamentals though.
+It feels like there aren't many resources that focus more broadly on improving your coding once you understand the fundamentals though.
 
-For instance, when I was learning [Flask](https://flask.palletsprojects.com/en/2.0.x/), I started by watching [Corey Schafer](https://www.youtube.com/c/Coreyms/featured) YouTube tutorials, and by reading the official Flask documentation. I even read a popular O'Reilly textbook on Flask called [Flask Web Development](https://flaskbook.com/) by Miguel Grinberg to deepen my understanding.
+For instance, when I was learning [Flask](https://flask.palletsprojects.com/en/2.0.x/), I started by watching [Corey Schafer](https://www.youtube.com/c/Coreyms/featured) YouTube tutorials, and by reading the official Flask documentation. I even read a [textbook](https://flaskbook.com/) on Flask to deepen my understanding.
 
 Don't get me wrong, all three of these resources are nothing short of fantastic. But when it came to working on an actual project and working on my companies Flask codebase, it quickly became clear that the basics taught in these resources don't cover how people work with Flask in practice.
 
-I use Flask as an example here, but this notion is applicable beyond the scope of just Flask or Python. Tutorials don't teach you how to code at the standard  most companies expect.
+I use Flask as an example here, but this notion is applicable beyond the scope of just Flask or Python. Tutorials don't teach you how to code at the standard  most organizations expect.
 
-This has always baffled me. Like many of my peers, I've struggled with how to go from building a basic CRUD app, like every tutorial shows how to do, to implementing more advanced architectural patterns that I hear more senior devs talk about. Things like ports and adapters or the service repository pattern.
+This has always baffled me. How am I supposed to go from building a basic CRUD app, like every tutorial shows how to do, to implementing more advanced architectural patterns that I hear more senior devs talk about? Things like ports and adapters or the service repository pattern.
 
-Where is everyone learning about this stuff? And why do I seem to be the only developer who doesn't know it? Where is the Codecademy class on implementing the unit of work pattern or working in a Domain Driven Design codebase? Should I be admitting these shortcomings in a public blog post? These are the questions that keep me up at night.
+Where is everyone learning about this stuff? Where is the Codecademy class on implementing the unit of work pattern or working in a Domain Driven Design codebase?
 
-It felt like there was a piece of the puzzle missing that I didn't fully understand. I asked a couple of the more senior devs at my company, [PartnerStack](https://www.partnerstack.com/), where I should go to learn the fundamentals of these architectural patterns.
+I asked a few of the more senior devs at my company, [PartnerStack](https://www.partnerstack.com/), where I should go to learn the fundamentals of these architectural patterns.
 
-Everyone that I asked recommended the book [Clean Code by Robert C. Martin](https://www.oreilly.com/library/view/clean-code-a/9780136083238/). A 400+ page walloping mammoth of a textbook with code examples written entirely in Java. If this was what I needed to do to learn proper architectural patterns though, then I would do it.
+Everyone that I asked recommended the book [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) by Robert C. Martin. A 400+ page walloping mammoth of a textbook with code examples written entirely in Java. If this was what I needed to do to learn proper architectural patterns though, then I would do it.
 
-So, I read <u>Clean Code</u> cover to cover, and while I did glean some information from it, a lot of it seemed targeted towards working with Java. And even more annoyingly, a lot of the principles presented as hard and fast rules are in fact extremely controversial.
+I read Clean Code cover to cover, and while I did glean some information from it, a lot of it seemed targeted towards working with Java. And even more annoyingly, a lot of the principles presented as hard and fast rules are in fact extremely controversial.
 
 For instance, the author states:
 
