@@ -8,7 +8,7 @@
         <router-link :to="{name: 'Home'}">
             <v-img
                 v-show="isDark"
-                src="/logo_dark.svg"
+                src="/static/logo_dark.svg"
                 alt="logo"
                 transition="scale-transition"
                 width="40"
@@ -16,7 +16,7 @@
             />
             <v-img
                 v-show="!isDark"
-                src="/logo.svg"
+                src="/static/logo.svg"
                 alt="logo"
                 transition="scale-transition"
                 width="40"

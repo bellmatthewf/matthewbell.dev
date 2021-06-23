@@ -1,3 +1,5 @@
+@import "@/styles/variables";
+
 .blog-post ::v-deep  {
     h1 {
         font-size: 36px;
@@ -39,6 +41,19 @@
         &:hover {
             border-bottom: 1px solid var(--v-divergent-11-base);
         }
+    }
+
+    img {
+        max-width: $max-content-width;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto 0 auto;
+    }
+
+    iframe {
+        width: $max-content-width;
+        height: 400px;
     }
 
 }

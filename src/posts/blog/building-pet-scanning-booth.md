@@ -12,6 +12,16 @@ A few years ago, I stumbled across a video of a company that 3D printed beautifu
 
 I thought about it some more and did some more research. That should work, right? Sounds easy. I've done a fair amount of 3D printing, I could probably figure this out.
 
+![Building the photogrammetry booth shot 1](../../static/photogrammetry_build_1.jpg)
+![Building the photogrammetry booth shot 2](../../static/photogrammetry_build_2.jpg)
+![Building the photogrammetry booth shot 3](../../static/photogrammetry_build_3.jpg)
+
+<!-- blank line -->
+<figure class="video_container">
+  <iframe src="https://www.youtube.com/embed/Y8BXqzo4hgs" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+<!-- blank line -->
+
 <b>The Planning Process</b>
 
 

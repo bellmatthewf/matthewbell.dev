@@ -1,3 +1,5 @@
+@import "@/styles/variables";
+
 :root {
     background: var(--v-primary-base);
     scrollbar-color: var(--v-divergent-1) var(--v-primary-base);
@@ -30,5 +32,5 @@
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 650px;
+    max-width: $max-content-width;
 }
