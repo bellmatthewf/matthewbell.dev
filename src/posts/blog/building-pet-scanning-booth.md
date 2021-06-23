@@ -17,9 +17,18 @@ I thought about it some more and did some more research. That should work, right
 ![Building the photogrammetry booth shot 3](../../static/photogrammetry_build_3.jpg)
 
 <!-- blank line -->
+
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/Y8BXqzo4hgs" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
+
+![Testing booth on Tilly (my cat)](../../static/tilly.jpg)
+
+![Testing booth on a drill](../../static/drill.jpg)
+
+![Drill cad file result](../../static/photogrammetry_result.jpg)
+
+
 <!-- blank line -->
 
 <b>The Planning Process</b>
