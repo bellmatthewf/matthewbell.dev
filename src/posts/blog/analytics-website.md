@@ -1,9 +1,16 @@
 ---
 filename: analytics-website
-title: My Data Analytics Portfolio Websites
-date: "2021-06-22"
-duration: "10 mins"
+title: My Data Analytics Portfolio Website
+date: "2021-06-19"
+duration: "1 min"
 tags: ["Project","Non-Technical"]
 ---
 
-Check it [here](https://www.matthewbellanalytics.com)
+This one is pretty self explanatory. This was a website I built with HTML/SASS. I built it when I was looking to work as a Data Analyst in 2018.
+
+The HTML/SASS it's built with is pretty barebones, so I won't spend time here talking about that, but the analytics cases in there are cool to check out! The cases typically use SQL + Python's Pandas library in conjunction with a visualization tool like Tableau.
+
+Check it out the [website](https://www.matthewbellanalytics.com)!
+
+
+And here's the [GitHub repo](https://github.com/bellmatthewf/bellmatthewf.github.io) for reference
