@@ -1,6 +1,5 @@
 
-import "@/styles/nprogress_overrides.scss";
-import NProgress from "nprogress";
+import { endLoadAnimation, startLoadAnimation } from "@/lib/loadAnimation";
 import Vue from "vue";
 import VueMeta from "vue-meta";
 import VueRouter from "vue-router";
@@ -54,17 +53,15 @@ const router = new VueRouter({
 
 router.beforeResolve((to, from, next) => {
     // If this isn't an initial page load.
-
     if (to.name) {
-        NProgress.start();
-        NProgress.set(0.1);
+        startLoadAnimation();
     }
     next();
 });
 
 router.afterEach((to, from) => {
-    // BlogPost/Home views will finish this process themselves after they load asynchronous posts
-    if (!["BlogPost", "Home"].includes(to.name)) { NProgress.done(); }
+    // BlogPost+Home views will finish this process themselves after they load asynchronous posts
+    if (!["BlogPost", "Home"].includes(to.name)) { endLoadAnimation(); }
 });
 
 export default router;

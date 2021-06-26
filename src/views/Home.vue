@@ -9,7 +9,7 @@
 
 <script>
 import marked from "marked";
-import NProgress from "nprogress";
+import { endLoadAnimation } from "@/lib/loadAnimation";
 
 export default {
     name: "Home",
@@ -35,7 +35,7 @@ export default {
         },
         completeLoadAnimation () {
             // Animation started by vue-router
-            NProgress.done();
+            endLoadAnimation();
         },
     },
 };

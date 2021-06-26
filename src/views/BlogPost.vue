@@ -13,7 +13,7 @@
 <script>
 import marked from "marked";
 import fm from "front-matter";
-import NProgress from "nprogress";
+import { endLoadAnimation } from "@/lib/loadAnimation";
 
 export default {
     name: "BlogPost",
@@ -62,7 +62,7 @@ export default {
         },
         completeLoadAnimation () {
             // Animation started by vue-router
-            NProgress.done();
+            endLoadAnimation();
         },
     },
 };
