@@ -19,10 +19,10 @@ export default {
     },
     components: { TheNavBar },
     created () {
-        this.setupTheme();
+        this.initTheme();
     },
     methods: {
-        setupTheme () {
+        initTheme () {
             const cachedDarkMode = localStorage.getItem("dark-mode");
             if (cachedDarkMode != null) {
                 this.$vuetify.theme.dark = (cachedDarkMode === "true");

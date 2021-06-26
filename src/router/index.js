@@ -56,7 +56,6 @@ router.beforeResolve((to, from, next) => {
     // If this isn't an initial page load.
 
     if (to.name) {
-        console.log(to.name);
         NProgress.start();
         NProgress.set(0.1);
     }
@@ -64,8 +63,8 @@ router.beforeResolve((to, from, next) => {
 });
 
 router.afterEach((to, from) => {
-    // BlogPost view will finish this process itself, as it loads post asynchronously
-    if (to.name !== "BlogPost") { NProgress.done(); }
+    // BlogPost/Home views will finish this process themselves after they load asynchronous posts
+    if (!["BlogPost", "Home"].includes(to.name)) { NProgress.done(); }
 });
 
 export default router;
