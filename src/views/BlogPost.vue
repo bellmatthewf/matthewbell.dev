@@ -27,6 +27,7 @@ export default {
     },
     created () {
         this.initBlogPost();
+        this.track();
     },
     methods: {
         async initBlogPost () {
