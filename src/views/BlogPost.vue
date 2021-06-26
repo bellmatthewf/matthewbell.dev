@@ -13,6 +13,7 @@
 <script>
 import marked from "marked";
 import fm from "front-matter";
+import NProgress from "nprogress";
 
 export default {
     name: "BlogPost",
@@ -25,16 +26,16 @@ export default {
             fmAttributes: {},
         };
     },
-    created () {
-        this.initBlogPost();
-        this.track();
+    async created () {
+        await this.initBlogPost();
+        this.completeLoadAnimation();
     },
     methods: {
         async initBlogPost () {
             const md = await this.fetchPost();
             const fmContent = this.loadMarkdown(md);
             this.redirectIfInvalidPost(fmContent);
-            this.openLinksInNewTab();
+            this.openMarkdownLinksInNewTab();
         },
         async fetchPost () {
             const postPath = `${process.env.VUE_APP_DOMAIN}/posts/blog/${this.$route.params.filename}.md`;
@@ -53,11 +54,15 @@ export default {
                 this.$router.push({ name: "PageNotFound" });
             }
         },
-        async openLinksInNewTab () {
+        async openMarkdownLinksInNewTab () {
             const blogLinks = await this.$refs.blogContent.getElementsByTagName("a");
             blogLinks.forEach(el => {
                 el.target = "_blank";
             });
+        },
+        completeLoadAnimation () {
+            // Animation started by vue-router
+            NProgress.done();
         },
     },
 };
