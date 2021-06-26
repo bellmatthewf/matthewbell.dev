@@ -5,6 +5,7 @@
         <div
             v-html="renderedMd"
             class="blog-post mb-16"
+            ref="blogContent"
         ></div>
     </div>
 </template>
@@ -24,12 +25,16 @@ export default {
             fmAttributes: {},
         };
     },
-    async created () {
-        const md = await this.fetchPost();
-        const fmContent = this.loadMarkdown(md);
-        this.redirectIfInvalidPost(fmContent);
+    created () {
+        this.initBlogPost();
     },
     methods: {
+        async initBlogPost () {
+            const md = await this.fetchPost();
+            const fmContent = this.loadMarkdown(md);
+            this.redirectIfInvalidPost(fmContent);
+            this.openLinksInNewTab();
+        },
         async fetchPost () {
             const postPath = `${process.env.VUE_APP_DOMAIN}/posts/blog/${this.$route.params.filename}.md`;
             const res = await fetch(postPath);
@@ -46,6 +51,12 @@ export default {
             if (Object.keys(fmContent.attributes).length === 0) {
                 this.$router.push({ name: "PageNotFound" });
             }
+        },
+        async openLinksInNewTab () {
+            const blogLinks = await this.$refs.blogContent.getElementsByTagName("a");
+            blogLinks.forEach(el => {
+                el.target = "_blank";
+            });
         },
     },
 };

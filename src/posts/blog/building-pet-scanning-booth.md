@@ -3,7 +3,7 @@ filename: building-pet-scanning-booth
 title: Building a 3D Scanning Booth
 date: "2021-06-21"
 duration: "10 mins"
-tags: ["Project", "Non-Technical"]
+tags: ["Project", "Python", "3D Printing"]
 ---
 
 ## The Idea

@@ -12,6 +12,6 @@ Here are some technologies I've worked with:
 
 <b>Languages:</b> Python, JavaScript, SQL, Node.js, CSS, SASS, HTML<br>
 <b>Notable Frameworks and Libraries:</b> Flask, Vue.js, Pandas, Vuex, Airflow<br>
-<b>Databases:</b> PostGreSQL, BigQuery, MySQL, Firebase<br>
+<b>Databases:</b> PostGreSQL, BigQuery, MySQL, Firebase, Redis<br>
 <b>Dashboarding:</b> Looker, Periscope, Tableau, Chartio<br>
 <b>Misc:</b> Git/Gitflow, Docker, Webpack, TDD, Agile/Scrum, Jira, SalesForce (administration), 3D Modelling/Printing

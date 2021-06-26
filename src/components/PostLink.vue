@@ -23,9 +23,13 @@ import { sortArrayOfObjectsByKey } from "@/lib/utils";
 const allowedTags = [
     "Reflection",
     "Book Review",
-    "Technical",
-    "Non-Technical",
     "Project",
+    "Python",
+    "SQL",
+    "Vue",
+    "Javascript",
+    "3D Printing",
+    "Analytics",
 ];
 
 export default {
@@ -53,7 +57,7 @@ export default {
             validator: arr => {
                 arr.forEach(tag => {
                     if (!(allowedTags.includes(tag.name))) {
-                        throw new Error("Invalid blog tag");
+                        throw new Error(`Invalid blog tag: '${tag.name}'`);
                     }
                 });
                 return true;
