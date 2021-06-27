@@ -1,14 +1,16 @@
 <template>
     <div class="content divergent-6--text">
         <h1 class="mb-5 divergent-11--text">Contact</h1>
-        <p class="my-0 title">You can email me at <a
-                class="divergent-9--text"
+        <p class="my-0">You can email me at <a
+                class="divergent-9--text link"
                 href="mailto: hi@matthewbell.dev"
             >hi@matthewbell.dev</a></p>
-        <p class="my-0 title"> Text me at <span class="divergent-9--text">+1 (416) 801-8237</span></p>
-        <p class="my-0 title"> Or message me on
+        <p class="my-0"> Text me at
+            <a class="divergent-9--text link" href="tel:+14168018237">+1 (416) 801-8237</a>
+        </p>
+        <p class="my-0"> Or message me on
             <a
-                class="divergent-9--text"
+                class="divergent-9--text link"
                 href="https://www.linkedin.com/in/matthewfbell/"
                 target="_blank"
             >LinkedIn</a>
@@ -25,5 +27,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+.link {
+    color: var(--v-divergent-11-base);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--v-divergent-1-base);
+    transition: border 0.3s ease-in-out;
+
+    &:hover {
+        border-bottom: 1px solid var(--v-divergent-11-base);
+    }
+}
 </style>

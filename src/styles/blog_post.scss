@@ -10,15 +10,16 @@
         color: var(--v-divergent-9-base);
     }
 
-    p,
-    li {
-        font-size: 18px;
-        opacity: 0.9;
-        color: var(--v-divergent-9-base);
-    }
+    a {
+        color: var(--v-divergent-11-base);
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid var(--v-divergent-1-base);
+        transition: border 0.3s ease-in-out;
 
-    p {
-        line-height: 1.65;
+        &:hover {
+            border-bottom: 1px solid var(--v-divergent-11-base);
+        }
     }
 
     blockquote {
@@ -31,18 +32,6 @@
 
         p {
             margin-bottom: 0;
-        }
-    }
-
-    a {
-        color: var(--v-divergent-11-base);
-        font-weight: 500;
-        text-decoration: none;
-        border-bottom: 1px solid var(--v-divergent-1-base);
-        transition: border 0.3s ease-in-out;
-
-        &:hover {
-            border-bottom: 1px solid var(--v-divergent-11-base);
         }
     }
 

@@ -34,3 +34,14 @@
     margin-right: auto;
     max-width: $max-content-width;
 }
+
+p,
+li {
+    font-size: 18px;
+    opacity: 0.9;
+    color: var(--v-divergent-9-base);
+}
+
+p {
+    line-height: 1.65;
+}
