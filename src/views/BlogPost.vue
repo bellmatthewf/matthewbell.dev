@@ -1,12 +1,15 @@
 <template>
-    <div class="content">
+    <div class="content mb-16">
         <h1 class="mb-1 blog-title">{{fmAttributes.title}}</h1>
         <p class="mb-7 subtitle-1 divergent-5--text">{{fmAttributes.date}} - {{fmAttributes.duration}}</p>
         <div
             v-html="renderedMd"
-            class="blog-post mb-16"
+            class="blog-post "
             ref="blogContent"
         ></div>
+        <router-link :to="{name: 'Blog'}">
+            <span class="my-7 back-button">Back</span>
+        </router-link>
     </div>
 </template>
 
@@ -73,5 +76,20 @@ export default {
 
 .blog-title {
     font-size: 36px;
+}
+
+.back-button {
+    display: inline-block;
+    color: var(--v-divergent-11-base);
+    opacity: .4;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--v-divergent-1-base);
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+        border-bottom: 1px solid var(--v-divergent-11-base);
+    }
 }
 </style>
