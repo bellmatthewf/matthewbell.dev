@@ -81,7 +81,7 @@ export default {
 .back-button {
     display: inline-block;
     color: var(--v-divergent-11-base);
-    opacity: .4;
+    opacity: 0.4;
     font-weight: 500;
     text-decoration: none;
     border-bottom: 1px solid var(--v-divergent-1-base);
