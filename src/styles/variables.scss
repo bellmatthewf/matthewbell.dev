@@ -1,14 +1,14 @@
 // Vuetify loader will automatically bootstrap variables into Vue CLI’s compilation process, overwriting the framework defaults
 // See which Vuetify variables can be customized here: https://vuetifyjs.com/en/features/sass-variables/#variable-api
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 
 // Globals
-$font-family: 'Inter', sans-serif;
-$body-font-family: 'Inter', sans-serif;
+$font-family: "Inter", sans-serif;
+$body-font-family: "Inter", sans-serif;
 $material-light: (
-'background': #FFFFFF
+    "background": #ffffff,
 );
 $material-dark: (
-'background': #050505
+    "background": #050505,
 );
-$max-content-width: 650px
+$max-content-width: 650px;
