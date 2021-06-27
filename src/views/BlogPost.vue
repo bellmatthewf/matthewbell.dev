@@ -55,8 +55,8 @@ export default {
             }
         },
         async openMarkdownLinksInNewTab () {
-            const blogLinks = await this.$refs.blogContent.getElementsByTagName("a");
-            blogLinks.forEach(el => {
+            const markdownLinks = await this.$refs.blogContent.getElementsByTagName("a");
+            markdownLinks.forEach(el => {
                 el.target = "_blank";
             });
         },

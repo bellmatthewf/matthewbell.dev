@@ -61,7 +61,9 @@ router.beforeResolve((to, from, next) => {
 
 router.afterEach((to, from) => {
     // BlogPost+Home views will finish this process themselves after they load asynchronous posts
-    if (!["BlogPost", "Home"].includes(to.name)) { endLoadAnimation(); }
+    if (!["BlogPost", "Home"].includes(to.name)) {
+        endLoadAnimation();
+    }
 });
 
 export default router;
