@@ -86,7 +86,7 @@ Ok now for the real test. I went to get my cat, Tilly to put her in booth. She h
 
 ![Testing booth on Tilly (my cat)](../../static/building-pet-scanning-booth/tilly.jpg)
 
-And this is when I realized this wasn't going to work. The cameras weren't a wide enough angle to capture enough of Tilly and I couldn't easily adjust the spacing. More importantly though, I thought I could keep Tilly still and centered by shining a laser pointer in the center of the machine, but it just wasn't reliable enough. I ended up needing to hold her instead, which nullifies the entire scan.
+And this is when I realized this wasn't going to work. The cameras weren't a wide enough angle to capture enough of Tilly and I couldn't easily adjust the spacing. More importantly though, I thought I could keep Tilly still and centered by shining a laser pointer in the center of the machine, but it just wasn't reliable enough. I ended up holding her instead, which nullifies the entire scan.
 
 I still wanted to see if it could in theory work with an inanimate object however, so I tried with a small power drill.
 
