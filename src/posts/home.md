@@ -2,13 +2,15 @@
 
 Hi, I'm Matt,
 
-I started learning to code in 2017 because I wanted to build a 3D scanner to digitize my cats and print miniature figurines of them.
+I'm a software engineer based out of Toronto.
 
-Since then, software development has become my full time job. Professionally, I've spent time building and embedding analytics dashboards into webapps, creating API endpoints, and building data pipelines.
+I started learning to code in 2017 because I wanted to [build a 3D scanner](https://www.matthewbell.dev/blog/building-pet-scanning-booth) to digitize my cats and print miniature figurines of them.
 
-I started this site as a place to share projects that I've worked on and my thoughts around mostly technology related topics.
+Since then, software development has become my full time job. I've spent time working on APIs, building and embedding analytics dashboards into webapps, and building data pipelines.
 
-Here are some technologies I've worked with:
+I started this site as a place to share projects that I've worked on and my thoughts on mostly tech related topics.
+
+Here are some technologies I've worked with in the past:
 
 <b>Languages:</b> Python, JavaScript, SQL, Node.js, CSS, SASS, HTML<br>
 <b>Notable Frameworks and Libraries:</b> Flask, Vue.js, Pandas, Vuex, Airflow<br>
