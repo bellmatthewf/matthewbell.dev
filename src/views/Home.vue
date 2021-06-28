@@ -22,6 +22,7 @@ export default {
         };
     },
     async created () {
+        // eslint-disable-next-line no-console
         console.log("Can't you just assume that there are no errors?");
         await this.initIntroPost();
         this.completeLoadAnimation();
