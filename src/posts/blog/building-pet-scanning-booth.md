@@ -2,7 +2,7 @@
 filename: building-pet-scanning-booth
 title: Building a 3D Scanning Booth
 date: "2021-06-21"
-duration: "10 mins"
+duration: "12 mins"
 tags: ["Project", "Python", "3D Printing"]
 ---
 ## TLDR:
@@ -105,6 +105,7 @@ Well, the idea didn't work in its current state. The quality of the 3D model was
 I believe there are three reasons:
 - 36 was not enough cameras. Most booths normally have at least 75 (although that is normally for scanning people which are much larger)
 - The quality of the photos was too low. Booths normally use high quality cameras, not Raspberry Pi Zero cams.
-- The backdrop is also normally completely white, which acts as a green screen. Because my backdrop was not a solid colour, it made it harder for the stitching software to detect the object inside. We can see that happening in the image above where the ground by the drill is included in the model.
+- The backdrop is also normally completely white, which acts as a green screen. Because my backdrop was not a solid colour, it made it harder for the stitching software to detect the object inside. We can see that happening in the image above where the ground by the drill is included in the model.<br><br>
+
 
 At this point I'd spend months on this project and decided to call it a wash for now. Maybe I'll come back to it at some point in the future but for now I'm going to leave it at that.
