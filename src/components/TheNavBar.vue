@@ -92,7 +92,6 @@
                         medium
                         v-for="btn in navBtns"
                         :key=btn.name
-                        :ripple="false"
                         :to=btn.route
                     >
                         <v-icon class="pr-3">{{btn.icon}}</v-icon> {{btn.text}}
