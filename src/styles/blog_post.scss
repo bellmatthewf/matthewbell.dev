@@ -36,6 +36,7 @@
     }
 
     img {
+        max-width: $max-content-width;
         position: relative;
         object-fit: cover;
         left: 50%;
@@ -44,7 +45,6 @@
     }
 
     figure {
-        max-width: $max-content-width;
         position: relative;
         overflow: hidden;
         width: 100%;
