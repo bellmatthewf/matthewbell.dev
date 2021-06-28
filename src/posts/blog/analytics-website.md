@@ -1,7 +1,7 @@
 ---
 filename: analytics-website
 title: My Data Analytics Portfolio Website
-date: "2021-06-19"
+date: "2021-06-16"
 duration: "1 min"
 tags: ["Project", "Python", "Analytics", "SQL"]
 ---
