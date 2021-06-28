@@ -38,6 +38,7 @@
     img {
         max-width: $max-content-width;
         position: relative;
+        object-fit: cover;
         left: 50%;
         transform: translateX(-50%);
         margin: 0 auto 0 auto;
