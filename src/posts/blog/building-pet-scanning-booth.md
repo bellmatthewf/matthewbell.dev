@@ -98,7 +98,6 @@ I then used a free photogrammetry stitching software to stitch the images togeth
 
 The results were... Lackluster.
 
-
 ![Drill cad file result](../../static/building-pet-scanning-booth/result.jpg)
 
 Well, the idea didn't work in its current state. The quality of the 3D model was completely unprintable. Why didn't it work with the drill?
