@@ -9,7 +9,8 @@
             <v-btn
                 v-if="!loading"
                 elevation="0"
-                class="ml-n16 divergent-9 primary--text center"
+                class="divergent-9 primary--text center"
+                :class="margin"
                 :to="featuredPost.link"
             >{{featuredPost.text}}</v-btn>
         </div>
@@ -35,6 +36,18 @@ export default {
                 link: { name: "BlogPost", params: { filename: "building-pet-scanning-booth" } },
             },
         };
+    },
+    computed: {
+        margin () {
+            switch (this.$vuetify.breakpoint.name) {
+                case "xs": return "ml-n12";
+                case "sm": return "ml-n14";
+                case "md": return "ml-n16";
+                case "lg": return "ml-n16";
+                case "xl": return "ml-n16";
+                default: return "ml-n16";
+            }
+        },
     },
     async created () {
         // eslint-disable-next-line no-console
