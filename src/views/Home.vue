@@ -9,7 +9,7 @@
             <v-btn
                 v-if="!loading"
                 elevation="0"
-                class="divergent-9 primary--text center"
+                class="ml-n16 divergent-9 primary--text center"
                 :to="featuredPost.link"
             >{{featuredPost.text}}</v-btn>
         </div>
