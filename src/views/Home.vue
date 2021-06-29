@@ -4,7 +4,16 @@
             v-html="renderedMd"
             class="blog-post"
         ></div>
+
+        <div class="my-15 d-flex justify-center">
+            <v-btn
+                elevation="0"
+                class="divergent-9 primary--text center"
+                :to="{name: 'BlogPost', params: {filename: 'building-pet-scanning-booth'}}"
+            >FEATURED POST</v-btn>
+        </div>
     </div>
+
 </template>
 
 <script>
