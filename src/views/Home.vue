@@ -9,8 +9,8 @@
             <v-btn
                 elevation="0"
                 class="divergent-9 primary--text center"
-                :to="{name: 'BlogPost', params: {filename: 'building-pet-scanning-booth'}}"
-            >FEATURED POST</v-btn>
+                :to="featuredPost.link"
+            >{{featuredPost.text}}</v-btn>
         </div>
     </div>
 
@@ -28,6 +28,10 @@ export default {
     data () {
         return {
             renderedMd: "",
+            featuredPost: {
+                text: "FEATURED POST",
+                link: { name: "BlogPost", params: { filename: "building-pet-scanning-booth" } },
+            },
         };
     },
     async created () {
