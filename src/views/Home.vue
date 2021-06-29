@@ -7,6 +7,7 @@
 
         <div class="my-15 d-flex justify-center">
             <v-btn
+                v-if="!loading"
                 elevation="0"
                 class="divergent-9 primary--text center"
                 :to="featuredPost.link"
@@ -27,6 +28,7 @@ export default {
     },
     data () {
         return {
+            loading: true,
             renderedMd: "",
             featuredPost: {
                 text: "FEATURED POST",
@@ -46,6 +48,7 @@ export default {
             const res = await fetch(postPath);
             const md = await res.text();
             this.renderedMd = marked(md);
+            this.loading = false;
         },
         completeLoadAnimation () {
             // Animation started by vue-router
