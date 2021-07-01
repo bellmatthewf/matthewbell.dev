@@ -40,8 +40,8 @@ export default {
     computed: {
         margin () {
             switch (this.$vuetify.breakpoint.name) {
-                case "xs": return "ml-n12";
-                case "sm": return "ml-n14";
+                case "xs": return "";
+                case "sm": return "";
                 case "md": return "ml-n16";
                 case "lg": return "ml-n16";
                 case "xl": return "ml-n16";
