@@ -10,7 +10,7 @@ Since then, software development has become my full time job. I've spent time wo
 
 I started this site as a place to share projects that I've worked on and my thoughts on mostly tech related topics.
 
-Here are some technologies I've worked with in the past:
+Here are some technologies I'm skilled with:
 
 <b>Languages:</b> Python, JavaScript, SQL, Node.js, CSS, SASS, HTML<br>
 <b>Notable Frameworks and Libraries:</b> Flask, Vue.js, Pandas, Vuex, Airflow<br>
