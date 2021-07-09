@@ -5,12 +5,6 @@
                 class="divergent-9--text link"
                 href="mailto: hi@matthewbell.dev"
             >hi@matthewbell.dev</a></p>
-        <p class="my-0"> Text me at
-            <a
-                class="divergent-9--text link"
-                href="tel:+14168018237"
-            >+1 (416) 801-8237</a>
-        </p>
         <p class="my-0"> Or message me on
             <a
                 class="divergent-9--text link"
