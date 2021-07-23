@@ -1,11 +1,11 @@
-import "@/styles/nprogress_overrides.scss";
-import NProgress from "nprogress";
+import "@/styles/nprogress_overrides.scss"
+import NProgress from "nprogress"
 
-export function startLoadAnimation () {
-    NProgress.start();
-    NProgress.set(0.1);
+export function startLoadAnimation() {
+    NProgress.start()
+    NProgress.set(0.1)
 }
 
-export function endLoadAnimation () {
-    NProgress.done();
+export function endLoadAnimation() {
+    NProgress.done()
 }

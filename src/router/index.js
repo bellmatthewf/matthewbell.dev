@@ -1,17 +1,16 @@
+import { endLoadAnimation, startLoadAnimation } from "@/lib/loadAnimation"
+import Vue from "vue"
+import VueMeta from "vue-meta"
+import VueRouter from "vue-router"
 
-import { endLoadAnimation, startLoadAnimation } from "@/lib/loadAnimation";
-import Vue from "vue";
-import VueMeta from "vue-meta";
-import VueRouter from "vue-router";
+Vue.use(VueMeta)
+Vue.use(VueRouter)
 
-Vue.use(VueMeta);
-Vue.use(VueRouter);
-
-const Home = () => import("@/views/Home.vue");
-const Blog = () => import("@/views/Blog.vue");
-const BlogPost = () => import("@/views/BlogPost.vue");
-const Contact = () => import("@/views/Contact.vue");
-const PageNotFound = () => import("@/views/PageNotFound.vue");
+const Home = () => import("@/views/Home.vue")
+const Blog = () => import("@/views/Blog.vue")
+const BlogPost = () => import("@/views/BlogPost.vue")
+const Contact = () => import("@/views/Contact.vue")
+const PageNotFound = () => import("@/views/PageNotFound.vue")
 
 const routes = [
     {
@@ -24,7 +23,8 @@ const routes = [
         path: "/blog",
         name: "Blog",
         component: Blog,
-    }, {
+    },
+    {
         path: "/blog/:filename",
         name: "BlogPost",
         component: BlogPost,
@@ -43,27 +43,27 @@ const routes = [
         path: "*",
         redirect: "/404",
     },
-];
+]
 
 const router = new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
     routes,
-});
+})
 
 router.beforeResolve((to, from, next) => {
     // If this isn't an initial page load.
     if (to.name) {
-        startLoadAnimation();
+        startLoadAnimation()
     }
-    next();
-});
+    next()
+})
 
-router.afterEach((to, from) => {
+router.afterEach((to) => {
     // BlogPost+Home views will finish this process themselves after they load asynchronous posts
     if (!["BlogPost", "Home"].includes(to.name)) {
-        endLoadAnimation();
+        endLoadAnimation()
     }
-});
+})
 
-export default router;
+export default router

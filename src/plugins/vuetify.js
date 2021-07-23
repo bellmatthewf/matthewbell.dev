@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib/framework";
+import Vue from "vue"
+import Vuetify from "vuetify/lib/framework"
 
 const vuetify = new Vuetify({
     theme: {
@@ -17,7 +17,6 @@ const vuetify = new Vuetify({
                 "divergent-9": "#323232",
                 "divergent-10": "#1C1C1C",
                 "divergent-11": "#050505",
-
             },
             dark: {
                 primary: "#050505",
@@ -39,8 +38,8 @@ const vuetify = new Vuetify({
             // Themecache broken when used with custom properties
         },
     },
-});
+})
 
-Vue.use(Vuetify);
+Vue.use(Vuetify)
 
-export default vuetify;
+export default vuetify

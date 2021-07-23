@@ -1,12 +1,7 @@
 <template>
     <div>
-        <v-app-bar
-            app
-            flat
-            class="primary"
-            height="88"
-        >
-            <router-link :to="{name: 'Home'}">
+        <v-app-bar app flat class="primary" height="88">
+            <router-link :to="{ name: 'Home' }">
                 <v-img
                     v-show="isDark"
                     src="/static/logo_dark.svg"
@@ -33,25 +28,25 @@
                         exact
                         medium
                         v-for="btn in navBtns"
-                        :key=btn.name
+                        :key="btn.name"
                         :ripple="false"
-                        :to=btn.route
+                        :to="btn.route"
                         class="hidden-xs-only"
                     >
-                        {{btn.text}}
+                        {{ btn.text }}
                     </v-btn>
                     <v-btn
                         plain
                         exact
                         x-small
                         v-for="btn in navIcons"
-                        :key=btn.icon
+                        :key="btn.icon"
                         :ripple="false"
-                        :href=btn.route
+                        :href="btn.route"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <v-icon>{{btn.icon}}</v-icon>
+                        <v-icon>{{ btn.icon }}</v-icon>
                     </v-btn>
                     <v-btn
                         plain
@@ -60,7 +55,7 @@
                         :ripple="false"
                         @click="toggleTheme"
                     >
-                        <v-icon>{{themeIcon}}</v-icon>
+                        <v-icon>{{ themeIcon }}</v-icon>
                     </v-btn>
                     <v-btn
                         plain
@@ -74,7 +69,6 @@
                     </v-btn>
                 </ul>
             </div>
-
         </v-app-bar>
         <v-navigation-drawer
             app
@@ -91,10 +85,11 @@
                         exact
                         medium
                         v-for="btn in navBtns"
-                        :key=btn.name
-                        :to=btn.route
+                        :key="btn.name"
+                        :to="btn.route"
                     >
-                        <v-icon class="pr-3">{{btn.icon}}</v-icon> {{btn.text}}
+                        <v-icon class="pr-3">{{ btn.icon }}</v-icon>
+                        {{ btn.text }}
                     </v-btn>
                 </ul>
             </div>
@@ -105,37 +100,51 @@
 <script>
 export default {
     name: "TheNavBar",
-    data () {
+    data() {
         return {
             showNavDrawer: false,
             navBtns: [
                 { text: "Home", icon: "mdi-home", route: { name: "Home" } },
-                { text: "Blog", icon: "mdi-book-open", route: { name: "Blog" } },
-                { text: "Contact", icon: "mdi-email", route: { name: "Contact" } },
+                {
+                    text: "Blog",
+                    icon: "mdi-book-open",
+                    route: { name: "Blog" },
+                },
+                {
+                    text: "Contact",
+                    icon: "mdi-email",
+                    route: { name: "Contact" },
+                },
             ],
             navIcons: [
-                { icon: "mdi-github", route: "https://github.com/bellmatthewf" },
-                { icon: "mdi-linkedin", route: "https://www.linkedin.com/in/matthewfbell/" },
+                {
+                    icon: "mdi-github",
+                    route: "https://github.com/bellmatthewf",
+                },
+                {
+                    icon: "mdi-linkedin",
+                    route: "https://www.linkedin.com/in/matthewfbell/",
+                },
             ],
-        };
+        }
     },
     computed: {
-        isDark () {
-            return this.$vuetify.theme.dark;
+        isDark() {
+            return this.$vuetify.theme.dark
         },
-        themeIcon () {
+        themeIcon() {
             if (this.isDark) {
-                return "mdi-white-balance-sunny";
+                return "mdi-white-balance-sunny"
             } else {
-                return "mdi-weather-night";
+                return "mdi-weather-night"
             }
         },
     },
     methods: {
-        toggleTheme () {
-            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-            localStorage.setItem("dark-mode", this.$vuetify.theme.dark);
+        toggleTheme() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+            localStorage.setItem("dark-mode", this.$vuetify.theme.dark)
         },
     },
-};
+}
 </script>

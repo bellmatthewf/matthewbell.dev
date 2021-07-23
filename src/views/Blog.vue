@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import PostLink from "@/components/PostLink";
-import { isSubsetOf, sortArrayOfObjectsByKey } from "@/lib/utils";
+import PostLink from "@/components/PostLink"
+import { isSubsetOf, sortArrayOfObjectsByKey } from "@/lib/utils"
 
 export default {
     name: "Blog",
@@ -26,58 +26,58 @@ export default {
     components: {
         PostLink,
     },
-    data () {
+    data() {
         return {
             posts: {},
             md: undefined,
             activeTagNames: [],
             activeColor: "#AEC6CF",
-        };
+        }
     },
-    created () {
+    created() {
         // Injected by webpack
-        const posts = process.env.VUE_APP_BLOG_DATA;
-        posts.forEach(post => {
-            post.tags = post.tags.map(tag => {
-                return { name: tag, isActive: false };
-            });
-        });
-        sortArrayOfObjectsByKey(posts, "date", true);
-        this.posts = posts;
+        const posts = process.env.VUE_APP_BLOG_DATA
+        posts.forEach((post) => {
+            post.tags = post.tags.map((tag) => {
+                return { name: tag, isActive: false }
+            })
+        })
+        sortArrayOfObjectsByKey(posts, "date", true)
+        this.posts = posts
     },
     computed: {
-        filteredPosts () {
-            if (!(this.activeTagNames.length)) {
-                return this.posts;
+        filteredPosts() {
+            if (!this.activeTagNames.length) {
+                return this.posts
             }
-            return this.posts.filter(post => {
-                const postTagsArr = post.tags.map(tag => tag.name);
-                return isSubsetOf(this.activeTagNames, postTagsArr);
-            });
+            return this.posts.filter((post) => {
+                const postTagsArr = post.tags.map((tag) => tag.name)
+                return isSubsetOf(this.activeTagNames, postTagsArr)
+            })
         },
     },
     methods: {
-        handleChipClicked (tagName) {
-            this.toggleActiveChip(tagName);
-            this.toggleChipColour(tagName);
+        handleChipClicked(tagName) {
+            this.toggleActiveChip(tagName)
+            this.toggleChipColour(tagName)
         },
-        toggleActiveChip (tagName) {
-            const idx = this.activeTagNames.indexOf(tagName);
+        toggleActiveChip(tagName) {
+            const idx = this.activeTagNames.indexOf(tagName)
             if (idx >= 0) {
-                this.activeTagNames.splice(idx, 1);
-                return;
+                this.activeTagNames.splice(idx, 1)
+                return
             }
-            this.activeTagNames.push(tagName);
+            this.activeTagNames.push(tagName)
         },
-        toggleChipColour (tagName) {
-            this.posts.forEach(post => {
-                post.tags.forEach(tag => {
+        toggleChipColour(tagName) {
+            this.posts.forEach((post) => {
+                post.tags.forEach((tag) => {
                     if (tag.name === tagName) {
-                        tag.isActive = !tag.isActive;
+                        tag.isActive = !tag.isActive
                     }
-                });
-            });
+                })
+            })
         },
     },
-};
+}
 </script>

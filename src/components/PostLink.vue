@@ -1,24 +1,27 @@
 <template>
     <div class="mb-10">
-        <router-link :to="{name: 'BlogPost', params: {filename}}">
-            <h3 class="my-0 blog-title divergent-11--text">{{title}}</h3>
+        <router-link :to="{ name: 'BlogPost', params: { filename } }">
+            <h3 class="my-0 blog-title divergent-11--text">{{ title }}</h3>
         </router-link>
-        <h6 class="mb-0 subtitle-2"><span class="divergent-6--text">{{date}}</span> <span class="divergent-4--text"> - {{duration}}</span></h6>
+        <h6 class="mb-0 subtitle-2">
+            <span class="divergent-6--text">{{ date }}</span>
+            <span class="divergent-4--text"> - {{ duration }}</span>
+        </h6>
         <v-chip
             v-for="tag in sortedTags"
-            :key=tag.name
+            :key="tag.name"
             @click="emitChipClicked(tag.name)"
             class="mr-1"
             :color="getColor(tag.isActive)"
             small
         >
-            {{tag.name}}
+            {{ tag.name }}
         </v-chip>
     </div>
 </template>
 
 <script>
-import { sortArrayOfObjectsByKey } from "@/lib/utils";
+import { sortArrayOfObjectsByKey } from "@/lib/utils"
 
 const allowedTags = [
     "Reflection",
@@ -30,7 +33,7 @@ const allowedTags = [
     "Javascript",
     "3D Printing",
     "Analytics",
-];
+]
 
 export default {
     name: "PostLink",
@@ -54,30 +57,30 @@ export default {
         tags: {
             type: Array,
             require: false,
-            validator: arr => {
-                arr.forEach(tag => {
-                    if (!(allowedTags.includes(tag.name))) {
-                        throw new Error(`Invalid blog tag: '${tag.name}'`);
+            validator: (arr) => {
+                arr.forEach((tag) => {
+                    if (!allowedTags.includes(tag.name)) {
+                        throw new Error(`Invalid blog tag: '${tag.name}'`)
                     }
-                });
-                return true;
+                })
+                return true
             },
         },
     },
     computed: {
-        sortedTags () {
-            return sortArrayOfObjectsByKey(this.tags, "name");
+        sortedTags() {
+            return sortArrayOfObjectsByKey(this.tags, "name")
         },
     },
     methods: {
-        emitChipClicked (tagName) {
-            this.$emit("chipClicked", tagName);
+        emitChipClicked(tagName) {
+            this.$emit("chipClicked", tagName)
         },
-        getColor (isActive) {
-            return isActive ? "grey" : "";
+        getColor(isActive) {
+            return isActive ? "grey" : ""
         },
     },
-};
+}
 </script>
 
 <style lang="scss" scoped>
