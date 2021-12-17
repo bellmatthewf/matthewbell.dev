@@ -5,7 +5,7 @@ import VueRouter from "vue-router"
 describe("PostLink.vue", () => {
     const propsData = {
         filename: "fantasy-basketball",
-        title: "Monetizing my Fantasy Basketball Model as a SAAS Website",
+        title: "Fantasy Basketball Model",
         date: "2021-06-23",
         duration: "10 mins",
         tags: [
