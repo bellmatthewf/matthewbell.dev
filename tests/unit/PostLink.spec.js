@@ -1,6 +1,6 @@
 import PostLink from "@/components/PostLink.vue"
-import Vuetify from "@/plugins/vuetify"
 import { createLocalVue, shallowMount } from "@vue/test-utils"
+import VueRouter from "vue-router"
 
 describe("PostLink.vue", () => {
     const propsData = {
@@ -16,14 +16,14 @@ describe("PostLink.vue", () => {
     }
 
     const localVue = createLocalVue()
-    // let vuetify
+    localVue.use(VueRouter)
+    const router = new VueRouter()
 
     let wrapper
     beforeEach(() => {
-        const vuetify = new Vuetify()
         wrapper = shallowMount(PostLink, {
             localVue,
-            vuetify,
+            router,
             propsData: { ...propsData },
         })
     })
