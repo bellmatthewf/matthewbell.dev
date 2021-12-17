@@ -31,11 +31,4 @@ describe("PostLink.vue", () => {
     it("renders", () => {
         expect(wrapper.exists()).toBe(true)
     })
-
-    // it("renders props.msg when passed", () => {
-    //     const wrapper = shallowMount(PostLink, {
-    //         propsData: { ...propsData },
-    //     })
-    //     expect(wrapper.text()).toMatch(msg)
-    // })
 })
