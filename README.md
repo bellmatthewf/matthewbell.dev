@@ -1,3 +1,3 @@
-My main portfolio website and blog
+My main website
 
 **[matthewbell.dev](https://matthewbell.dev)**
