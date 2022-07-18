@@ -12,8 +12,7 @@ I started this site as a place to share projects that I've worked on and my thou
 
 Here are some technologies I'm skilled with:
 
-<b>Languages:</b> Python, JavaScript, SQL, Node.js, CSS, SASS, HTML<br>
+<b>Languages:</b> Python, TypeScript, JavaScript, SQL, Node.js, CSS, SASS, HTML<br>
 <b>Notable Frameworks and Libraries:</b> Flask, Vue, React, Pandas, Vuex, Airflow<br>
 <b>Databases:</b> PostGreSQL, BigQuery, MySQL, Firebase, Redis<br>
-<b>Dashboarding:</b> Looker, Periscope, Tableau, Chartio<br>
 <b>Misc:</b> Git/Gitflow, Docker, Webpack, TDD, Agile/Scrum, Jira, SalesForce (administration), 3D Modelling/Printing
