@@ -32,7 +32,7 @@ export default {
                 text: "FEATURED POST",
                 link: {
                     name: "BlogPost",
-                    params: { filename: "building-pet-scanning-booth" },
+                    params: { filename: "fantasy-basketball" },
                 },
             },
         }

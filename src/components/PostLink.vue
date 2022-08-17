@@ -30,6 +30,8 @@ const allowedTags = [
     "Python",
     "SQL",
     "Vue",
+    "React",
+    "Flask",
     "Javascript",
     "3D Printing",
     "Analytics",
