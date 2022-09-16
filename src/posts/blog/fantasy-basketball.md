@@ -10,7 +10,7 @@ tags: ["Project", "Python", "React", "Flask"]
 
 In 2018, I wrote an article on my [analytics website](https://matthewbellanalytics.com/pages/basketball_analytics) about using math and analytics to draft the best possible fantasy basketball team.
 
-I didn't think that anyone would read it at the time, but as it turned out I get 10 or so emails annually from strangers asking to buy the model. So, I decided to build a website and put the model up for sale.
+I didn't think that anyone would read it at the time, but as it turns out, I get a few emails each year from strangers asking to buy the model. So, I decided to build a website and put the model up for sale.
 
 That website became [FantazScores.com](https://fantazscores.com).
 
