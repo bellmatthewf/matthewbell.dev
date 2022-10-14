@@ -28,8 +28,6 @@ This part gets pretty technical, if you're non-technical, I'd recommend checking
 
 ![FantazScores architecture](../../static/fantazscores/architecture.png)
 
-Incoming technical jargon vomit...
-
 The FantazScores backend is written in Python's [Flask](https://flask.palletsprojects.com/en/2.2.x/) framework and the frontend is written in [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) and [MobX](https://mobx.js.org/README.html) for state management.
 
 The database used is [PostGreSQL](https://www.postgresql.org/), which we access using Python's [SQLAlchemy](https://www.sqlalchemy.org/) library, and the daily stat updates are scheduled and run using [Celery](https://docs.celeryq.dev/en/stable/getting-started/introduction.html), an asynchronous task queue.
