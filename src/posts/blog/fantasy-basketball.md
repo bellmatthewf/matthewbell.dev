@@ -46,7 +46,7 @@ The hardest page to build in FantazScores was by far the rankings page.
 
 ![FantazScores rankings page](../../static/fantazscores/rankings.png)
 
-This page allows us to view ZScore rankings of all NBA players. It is filterable by team, timeframe, and season. We can also recompute value by <i>punting</i> categories. It is also sortable by any column.
+This page allows us to view z-score rankings of all NBA players. It is filterable by team, timeframe, and season. We can also recompute value by punting (omitting) categories from the overall ranking calculation. It is also sortable by any column.
 
 Without even adding any programming into the mix, the math alone to calculate these values can get complicated, especially for weighted percentage values (free throws and fields goals).
 
@@ -70,7 +70,7 @@ Specifically, that would mean injecting a separate <i>mock</i> or <i>fake</i> re
 
 ### Testing
 
-I'll be honest here, I started out writing unit and integration tests for everything on my backend using [Pytest](https://docs.pytest.org/en/7.1.x/) for module discovery and [Unittest](https://docs.python.org/3/library/unittest.html) to write the tests. But as the project took longer and longer to complete I started skimping on testing... And well, - <i>skimping</i> is an understatement. This is the type of thing that I would never do on the job, but for a personal website, where time is limited, sometimes you need to cut some corners for speed.
+I'll be honest here, I started out writing unit and integration tests for everything on my backend using [Pytest](https://docs.pytest.org/en/7.1.x/) for module discovery and [Unittest](https://docs.python.org/3/library/unittest.html) to write the tests. But as the project took longer and longer to complete I started skimping on testing. This is the type of thing that I would never do on the job, but for a personal website, where time is limited, sometimes you need to cut some corners for speed.
 
 ### Overall
 
