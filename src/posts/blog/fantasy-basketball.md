@@ -1,6 +1,6 @@
 ---
 filename: fantasy-basketball
-title: Building FantazScores.com
+title: Building FantaZscores.com
 date: "2022-08-17"
 duration: "12 mins"
 tags: ["Project", "Python", "React", "Flask"]
@@ -12,13 +12,13 @@ In 2018, I wrote an article on my [analytics website](https://matthewbellanalyti
 
 I didn't think that anyone would read it at the time, but as it turns out, I get a few emails each year from strangers asking to buy the model. So, I decided to build a website and put the model up for sale.
 
-That website became [FantazScores.com](https://fantazscores.com).
+That website became [FantaZscores.com](https://fantazscores.com).
 
-![FantazScores homepage](../../static/fantazscores/home.png)
+![FantaZscores homepage](../../static/fantazscores/home.png)
 
 ## What the Website Does
 
-I won't go too in depth here because my [other article](https://matthewbellanalytics.com/pages/basketball_analytics) already covers the specifics of the FantazScores model. But to give a high level overview, FantazScores pulls in daily NBA stats and provides an interactive analytical model to value NBA players for the purposes of fantasy basketball leagues.
+I won't go too in depth here because my [other article](https://matthewbellanalytics.com/pages/basketball_analytics) already covers the specifics of the FantaZscores model. But to give a high level overview, FantaZscores pulls in daily NBA stats and provides an interactive analytical model to value NBA players for the purposes of fantasy basketball leagues.
 
 ## Building the Website
 
@@ -28,7 +28,9 @@ This part gets pretty technical, if you're non-technical, I'd recommend checking
 
 ![FantazScores architecture](../../static/fantazscores/architecture.png)
 
-The FantazScores backend is written in Python's [Flask](https://flask.palletsprojects.com/en/2.2.x/) framework and the frontend is written in [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) and [MobX](https://mobx.js.org/README.html) for state management.
+Incoming technical jargon vomit...
+
+The FantaZscores backend is written in Python's [Flask](https://flask.palletsprojects.com/en/2.2.x/) framework and the frontend is written in [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) and [MobX](https://mobx.js.org/README.html) for state management.
 
 The database used is [PostGreSQL](https://www.postgresql.org/), which we access using Python's [SQLAlchemy](https://www.sqlalchemy.org/) library, and the daily stat updates are scheduled and run using [Celery](https://docs.celeryq.dev/en/stable/getting-started/introduction.html), an asynchronous task queue.
 
@@ -42,9 +44,9 @@ I scrapped Redis as a result and accepted that my server would take slightly lon
 
 ### Frontend - Building the Rankings Page
 
-The hardest page to build in FantazScores was by far the rankings page.
+The hardest page to build in FantaZscores was by far the rankings page.
 
-![FantazScores rankings page](../../static/fantazscores/rankings.png)
+![FantaZscores rankings page](../../static/fantazscores/rankings.png)
 
 This page allows us to view z-score rankings of all NBA players. It is filterable by team, timeframe, and season. We can also recompute value by punting (omitting) categories from the overall ranking calculation. It is also sortable by any column.
 
