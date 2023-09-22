@@ -4,7 +4,7 @@ Hi, I'm Matt,
 
 I'm a software engineer based out of Toronto.
 
-I started learning to code in 2017 because I wanted to [build a 3D scanner](https://www.matthewbell.dev/blog/building-pet-scanning-booth) to digitize my cats and print miniature figurines of them.
+I started learning to code in 2017 because I wanted to [build a 3D scanner](https://www.matthewbell.dev/blog/building-pet-scanning-booth).
 
 Since then, software development has become my full time job. I've spent time working on APIs, building and embedding analytics dashboards into webapps, and building data pipelines.
 
